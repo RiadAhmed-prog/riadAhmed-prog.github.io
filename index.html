@@ -1,116 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Riad Ahmed - Portfolio</title>
-  <!-- Example of importing a Google Font (optional). -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Riad Ahmed - Paper-Like Portfolio</title>
+  <!-- Optional Google Fonts for better typography -->
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap" 
+    rel="stylesheet"
+  />
   <style>
-    /* Root variables for easy color customization */
+    /* 
+      Root variables for easy color & font customization 
+      Adjust them as you like.
+    */
     :root {
-      --bg-color: #f0f4f8;
-      --highlight-bg: #ffffff;
-      --primary-color: #0053ba; 
-      --secondary-color: #333333;
-      --text-color: #444444; 
-      --heading-font: 'Open Sans', sans-serif; 
-      --body-font: 'Open Sans', sans-serif; 
+      --body-bg: #f3f3f1;          /* Light background color behind the paper */
+      --paper-bg: #ffffff;         /* White “paper” color */
+      --paper-border: #ebeae8;     /* Subtle paper border color */
+      --text-color: #333333;       /* Default text color */
+      --heading-color: #111111;    /* Heading text color */
+      --accent-color: #c0392b;     /* Accent color for headings & highlights */
+      --heading-font: 'Merriweather', serif;
+      --body-font: 'Open Sans', sans-serif;
     }
 
-    /* Global Reset */
+    /* GLOBAL RESET */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
+    /* BODY */
+    body {
+      background-color: var(--body-bg);
       font-family: var(--body-font);
-      background-color: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
     }
 
-    header {
-      background: var(--highlight-bg);
+    /* PAPER CONTAINER */
+    .paper {
+      /* Center the "paper" and give it a subtle drop shadow */
+      max-width: 800px;
+      margin: 3rem auto;
+      background-color: var(--paper-bg);
       padding: 2rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--paper-border);
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      border-radius: 2px;
+    }
+
+    /* HEADER / TITLE AREA */
+    header {
       text-align: center;
+      margin-bottom: 2rem;
     }
 
-    /* Hero / Header Title */
-    .hero-title {
+    header h1 {
       font-family: var(--heading-font);
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--secondary-color);
+      font-size: 2.2rem;
+      color: var(--heading-color);
+      margin-bottom: 0.2rem;
     }
 
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: #555555;
-      margin-bottom: 1rem;
-    }
-
-    .hero-contact {
-      margin-top: 1rem;
+    header p {
       font-size: 1rem;
-      color: #666666;
+      margin-bottom: 0.5rem;
     }
 
-    .hero-contact a {
-      color: var(--primary-color);
+    .contact-info {
+      font-size: 0.95rem;
+      color: #555555;
+    }
+
+    .contact-info a {
+      color: var(--accent-color);
       text-decoration: none;
       margin: 0 4px;
     }
 
-    /* Navigation */
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* NAVIGATION (Optional anchor links) */
     nav {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.8rem;
     }
 
     nav a {
+      color: var(--accent-color);
       text-decoration: none;
-      color: var(--primary-color);
       font-weight: 600;
+      font-size: 0.9rem;
       border-bottom: 2px solid transparent;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.2s;
     }
 
     nav a:hover {
-      border-color: var(--primary-color);
+      border-color: var(--accent-color);
     }
 
-    /* Main container for sections */
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
+    /* SECTION STYLES */
     section {
-      background-color: var(--highlight-bg);
       margin-bottom: 2rem;
-      padding: 1.5rem;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     section h2 {
-      margin-bottom: 1rem;
+      font-family: var(--heading-font);
       font-size: 1.5rem;
-      color: var(--secondary-color);
-      border-left: 4px solid var(--primary-color);
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      border-left: 5px solid var(--accent-color);
       padding-left: 0.5rem;
     }
 
-    /* List styling */
+    /* LISTS */
     ul {
       list-style-type: disc;
       margin-left: 1.5rem;
@@ -121,181 +133,182 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Footer */
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 2rem;
+      margin-top: 3rem;
+      font-size: 0.85rem;
       color: #777777;
     }
 
-    footer p {
-      margin-bottom: 0.5rem;
-    }
-
-    /* Responsive Design */
+    /* RESPONSIVE ADJUSTMENTS */
     @media (max-width: 600px) {
-      .hero-title {
-        font-size: 2rem;
+      header h1 {
+        font-size: 1.8rem;
       }
+
       nav {
         flex-direction: column;
+        gap: 0.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header / Hero Section -->
-  <header>
-    <h1 class="hero-title">Riad Ahmed</h1>
-    <p class="hero-subtitle">MS in Computer Science, University of New Hampshire</p>
-    <p class="hero-contact">
-      Email: <a href="mailto:riad.ahmed@bracu.ac.bd">riad.ahmed@bracu.ac.bd</a> 
-      | Mobile: +8801959738754
-      <br/>
-      <a href="https://scholar.google.com/citations?user=iwkN68QAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a> | 
-      <a href="https://github.com/riadAhmed-prog" target="_blank">GitHub</a> | 
-      <a href="https://cse.sds.bracu.ac.bd/faculty_profile/27/mr_riad_ahmed" target="_blank">Website</a>
-    </p>
-    <nav>
-      <a href="#education">Education</a>
-      <a href="#research-interest">Research Interest</a>
-      <a href="#publications">Publications</a>
-      <a href="#research-experiences">Research Experience</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#industry">Industry</a>
-      <a href="#projects">Projects</a>
-      <a href="#awards">Honors & Awards</a>
-    </nav>
-  </header>
+  <div class="paper">
+    <!-- HEADER -->
+    <header>
+      <h1>Riad Ahmed</h1>
+      <p>MS in Computer Science, University of New Hampshire</p>
+      <p class="contact-info">
+        Email: <a href="mailto:riad.ahmed@bracu.ac.bd">riad.ahmed@bracu.ac.bd</a> 
+        | Mobile: +8801959738754 <br/>
+        <a href="https://scholar.google.com/citations?user=iwkN68QAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a> |
+        <a href="https://github.com/riadAhmed-prog" target="_blank">GitHub</a> |
+        <a href="https://cse.sds.bracu.ac.bd/faculty_profile/27/mr_riad_ahmed" target="_blank">Website</a>
+      </p>
+      <nav>
+        <a href="#education">Education</a>
+        <a href="#research-interest">Research Interest</a>
+        <a href="#publications">Publications</a>
+        <a href="#research-experiences">Research Experience</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#industry">Industry</a>
+        <a href="#projects">Projects</a>
+        <a href="#awards">Honors & Awards</a>
+      </nav>
+    </header>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Education -->
+    <!-- MAIN CONTENT -->
     <section id="education">
       <h2>Education</h2>
       <ul>
-        <li><strong>MS in Computer Science</strong>, University of New Hampshire (2025 - Current)</li>
         <li>
-          <strong>BSc in Robotics and Mechatronics Engineering</strong>, University of Dhaka (2017 - 2021) <br/>
-          CGPA: 3.71/4.00
+          <strong>MS in Computer Science</strong>, University of New Hampshire 
+          (2025 - Current)
+        </li>
+        <li>
+          <strong>BSc in Robotics & Mechatronics Engineering</strong>, University of Dhaka 
+          (2017 - 2021), CGPA: 3.71/4.00
         </li>
       </ul>
     </section>
 
-    <!-- Research Interests -->
     <section id="research-interest">
       <h2>Research Interest</h2>
       <p>
         Safe Imitation Learning, Robot Learning, Foundation Models, Large Language Models, 
-        Intelligent System Design, Computer Vision.
+        Intelligent System Design, Computer Vision
       </p>
     </section>
 
-    <!-- Publications -->
     <section id="publications">
       <h2>Publications</h2>
       <ul>
         <li>
-          Ahmed R, Abdullah R, Jamal L. <em>STPT: Spatio-Temporal Polychromatic Trajectory 
-          Based Elderly Exercise Evaluation System.</em> IEEE Access, 2023.
+          Ahmed R, Abdullah R, Jamal L. <em>STPT: Spatio-Temporal Polychromatic 
+          Trajectory Based Elderly Exercise Evaluation System.</em> IEEE Access, 2023.
         </li>
         <li>
-          Abdullah, Raiyaan, Riad Ahmed, and Lafifa Jamal. <em>A Novel IOT-Based Medicine 
-          Consumption System for Elders.</em> SN Computer Science 3 (2022): 471.
+          Abdullah, Raiyaan, Riad Ahmed, and Lafifa Jamal. <em>A Novel IOT-Based 
+          Medicine Consumption System for Elders.</em> SN Computer Science 3 (2022): 471.
         </li>
         <li>
-          N. Irtisam, R. Ahmed, MN. Akash, R. Abdullah, S. Sarker, S. Rahman, L. Jamal. <em>Pathfinder: 
-          A Fog Assisted Vision-Based System for Optimal Path Selection of Service Robots.</em> 
-          ICIEV & icIVPR (2020).
+          N. Irtisam, R. Ahmed, MN. Akash, R. Abdullah, S. Sarker, S. Rahman, L. Jamal. 
+          <em>Pathfinder: A Fog Assisted Vision-Based System for Optimal Path Selection 
+          of Service Robots.</em> ICIEV & icIVPR (2020).
         </li>
         <li>
-          Imran, A., Ahmed, R., Hasan, M.M. et al. <em>FaceEngine: A Tracking-Based Framework for 
-          Real-Time Face Recognition in Video Surveillance System.</em> SN Comput Sci 5, 609 (2024).
+          Imran, A., Ahmed, R., Hasan, M.M. et al. 
+          <em>FaceEngine: A Tracking-Based Framework for Real-Time Face Recognition 
+          in Video Surveillance System.</em> SN Comput Sci 5, 609 (2024).
         </li>
         <li>
-          A. M. Chowdhury, A. Imran, M. M. Hasan, R. Ahmed, A. Azad and S. A. Alyami. <em>U-ActionNet: 
-          Dual-Pathway Fourier Networks With Region-of-Interest Module for Efficient Action Recognition 
-          in UAV Surveillance.</em> IEEE Access, vol. 12 (2024).
+          A. M. Chowdhury, A. Imran, M. M. Hasan, R. Ahmed, A. Azad, S. A. Alyami. 
+          <em>U-ActionNet: Dual-Pathway Fourier Networks With Region-of-Interest Module 
+          for Efficient Action Recognition in UAV Surveillance.</em> IEEE Access, vol. 12 (2024).
         </li>
       </ul>
     </section>
 
-    <!-- Research Experiences -->
     <section id="research-experiences">
       <h2>Research Experience</h2>
       <ul>
         <li>
-          <strong>Research Assistant</strong> - Cognitive Assistive Robotics Lab, University of New Hampshire 
-          (Jan 2025 - Current)<br/>
-          Working on Safe Imitation Learning under the supervision of Dr. Momotaz Begum.
+          <strong>Research Assistant</strong> – Cognitive Assistive Robotics Lab, 
+          University of New Hampshire (Jan 2025 - Current). <br/>
+          Safe Imitation Learning under Dr. Momotaz Begum.
         </li>
         <li>
-          <strong>Co-Founder & Supervisor</strong> - Robotics and Intelligent System (RIS) Research Group, 
-          BRAC University (May 2023 - Current)<br/>
-          Research on multi-agent pathfinding and reinforcement learning for service robots.
+          <strong>Co-Founder & Supervisor</strong> – Robotics and Intelligent System (RIS) 
+          Research Group, BRAC University (May 2023 - Current). <br/>
+          Multi-agent pathfinding & reinforcement learning for service robots.
         </li>
         <li>
-          <strong>Research Assistant</strong> - University of Dhaka (May 2022 - Current)<br/>
-          Working on AI-based Bengali Handwriting Teaching Robot for Children (Haate-khori), among other projects.
+          <strong>Research Assistant</strong> – University of Dhaka (May 2022 - Current). <br/>
+          AI-based Bengali Handwriting Teaching Robot (Haate-khori), among other projects.
         </li>
       </ul>
     </section>
 
-    <!-- Teaching -->
     <section id="teaching">
       <h2>Teaching Experience</h2>
       <ul>
         <li>
-          <strong>Lecturer (On Study Leave)</strong>, BRAC University, 
-          Department of Computer Science and Engineering (Jan 2023 - Current)
+          <strong>Lecturer (On Study Leave)</strong>, BRAC University 
+          (Jan 2023 - Current)
         </li>
-        <li>Courses taught: Introduction to Robotics (CSE461), Programming Language II (CSE111).</li>
         <li>
-          <strong>Instructor</strong>, Artificial Intelligence and Robotics Course at Cumilla Victoria Govt. College (2022)
+          Courses: Introduction to Robotics (CSE461), Programming Language II (CSE111)
+        </li>
+        <li>
+          <strong>Instructor</strong>, AI & Robotics, Cumilla Victoria Govt. College (2022)
         </li>
       </ul>
     </section>
 
-    <!-- Industry Experiences -->
     <section id="industry">
       <h2>Industry Experience</h2>
       <ul>
         <li>
-          <strong>Machine Learning Engineer</strong>, Headless Technologies Limited 
-          (Dec 2021 - Jan 2023)<br/>
-          Developed AI-enabled computer vision solutions for video analytics, person tracking, and AutoML pipelines.
+          <strong>Machine Learning Engineer</strong>, Headless Technologies Ltd. 
+          (Dec 2021 - Jan 2023). <br/>
+          Developed AI-enabled CV solutions for video analytics, person tracking, & AutoML pipelines.
         </li>
         <li>
           <strong>Computer Vision Engineer (Part-Time)</strong>, Pranon Group 
-          (Sep 2022 - Dec 2022)<br/>
-          Worked on face recognition and multi-camera person activity tracking.
+          (Sep 2022 - Dec 2022). <br/>
+          Face recognition & multi-camera activity tracking.
         </li>
       </ul>
     </section>
 
-    <!-- Selected Research Projects -->
     <section id="projects">
       <h2>Selected Research Projects</h2>
       <ul>
         <li>
-          <strong>Elderly People Assistance System</strong>: Helps with medicine intake and daily exercises.
+          <strong>Elderly People Assistance System</strong>: 
+          medicine intake & daily exercise support.
         </li>
         <li>
-          <strong>IV Therapy Administration System</strong>: Monitors saline levels and controls flow remotely.
+          <strong>IV Therapy Administration System</strong>:
+          monitors saline levels, remote flow control.
         </li>
         <li>
-          <strong>AIgriculture Robot</strong>: YOLO-based weed detection and removal in agricultural fields.
+          <strong>AIgriculture Robot</strong>:
+          YOLO-based weed detection & removal in fields.
         </li>
         <li>
-          <strong>Q-Learning Stock Trader</strong>: Reinforcement Learning agent for buy/hold/sell decisions.
+          <strong>Q-Learning Stock Trader</strong>:
+          RL agent for buy/hold/sell decisions.
         </li>
         <li>
-          <strong>Vision-Based Object Sorting</strong>: 5 DOF manipulator sorting objects via OCR detection.
+          <strong>Vision-Based Object Sorting</strong>:
+          5 DOF manipulator using OCR detection.
         </li>
       </ul>
     </section>
 
-    <!-- Honors and Awards -->
     <section id="awards">
       <h2>Honors & Awards</h2>
       <ul>
@@ -308,11 +321,12 @@
         <li>2nd Runners-Up, DUET Techfest (2018)</li>
       </ul>
     </section>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 Riad Ahmed. All rights reserved.</p>
-    <p>Powered by GitHub Pages</p>
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2025 Riad Ahmed. All rights reserved.</p>
+      <p>Powered by GitHub Pages</p>
+    </footer>
+  </div>
 </body>
 </html>
