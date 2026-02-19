@@ -1,344 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Riad Ahmed - Multi-Sheet Portfolio</title>
-  <!-- Optional Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com"/>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap" 
-    rel="stylesheet"
-  />
-  <style>
-    /* 
-      Root variables for easy customization:
-      You can change these to adjust the overall colors, fonts, etc.
-    */
-    :root {
-      --body-bg: #f1f0ec;          /* Subtle background behind the 'paper' */
-      --paper-bg: #ffffff;         /* Paper sheet background */
-      --paper-border: #d4d3cf;     /* Border color for each sheet */
-      --heading-color: #2c3e50;    /* Dark heading color */
-      --text-color: #444;          /* Body text color */
-      --accent-color: #c0392b;     /* Highlight color */
-      --heading-font: 'Merriweather', serif;
-      --body-font: 'Open Sans', sans-serif;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riad Ahmed — Robotics Researcher</title>
+  <meta name="description" content="Riad Ahmed — Ph.D. student in Computer Science at the University of New Hampshire. Research in safe imitation learning, flow matching policies, and embodied intelligence." />
 
-    /* Reset & Global styling */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
 
-    body {
-      background: var(--body-bg);
-      font-family: var(--body-font);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-
-    /* HEADER / TITLE AREA */
-    header {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: var(--accent-color);
-      color: #ffffff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    header h1 {
-      font-family: var(--heading-font);
-      font-size: 2.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    header p {
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-
-    /* Contact info links */
-    .contact-info a {
-      color: #ffffff;
-      text-decoration: underline;
-      margin: 0 5px;
-    }
-
-    .contact-info a:hover {
-      text-decoration: none;
-    }
-
-    /* Navigation links (anchor shortcuts) */
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    nav a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.2s;
-    }
-
-    nav a:hover {
-      border-color: #ffffff;
-    }
-
-    /* PAPER SECTION (each sheet) */
-    .paper-section {
-      width: 90%;
-      max-width: 800px;
-      margin: 2rem auto; /* spacing between sheets */
-      background-color: var(--paper-bg);
-      border: 1px solid var(--paper-border);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      border-radius: 3px;
-      padding: 1.5rem;
-      position: relative;
-    }
-
-    /* Slight offset "stack" effect - each sheet can be shifted a bit */
-    .paper-section:nth-of-type(2) {
-      margin-top: -1rem; 
-      margin-bottom: 3rem; 
-      transform: rotate(-1deg);
-    }
-    .paper-section:nth-of-type(3) {
-      transform: rotate(1deg);
-    }
-    /* Feel free to tweak or remove these transforms for a straighter stack */
-
-    .paper-section h2 {
-      font-family: var(--heading-font);
-      font-size: 1.5rem;
-      color: var(--accent-color);
-      margin-bottom: 0.8rem;
-      border-left: 4px solid var(--accent-color);
-      padding-left: 0.5rem;
-    }
-
-    .paper-section p,
-    .paper-section li {
-      font-size: 0.95rem;
-    }
-
-    /* Lists */
-    ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      padding: 2rem 1rem;
-      font-size: 0.85rem;
-      color: #777777;
-    }
-
-    /* Responsive adjustments for small screens */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      header p {
-        font-size: 0.95rem;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .paper-section {
-        margin: 1.5rem auto;
-      }
-
-      .paper-section:nth-of-type(2), 
-      .paper-section:nth-of-type(3) {
-        margin-top: 1.5rem;
-        transform: none; /* remove the rotation for smaller devices if desired */
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- HEADER (Title) -->
-  <header>
-    <h1>Riad Ahmed</h1>
-    <p>MS in Computer Science, University of New Hampshire</p>
-    <p class="contact-info">
-      Email: <a href="mailto:riad.ahmed@bracu.ac.bd">riad.ahmed@bracu.ac.bd</a> 
-      | Mobile: +8801959738754<br/>
-      <a href="https://scholar.google.com/citations?user=iwkN68QAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a> | 
-      <a href="https://github.com/riadAhmed-prog" target="_blank">GitHub</a> | 
-      <a href="https://cse.sds.bracu.ac.bd/faculty_profile/27/mr_riad_ahmed" target="_blank">Website</a>
-    </p>
-    <nav>
-      <a href="#education">Education</a>
-      <a href="#research-interest">Research Interest</a>
-      <a href="#publications">Publications</a>
-      <a href="#research-experiences">Research Experience</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#industry">Industry</a>
-      <a href="#projects">Projects</a>
-      <a href="#awards">Honors & Awards</a>
-    </nav>
-  </header>
-
-  <!-- PAPER SECTION 1: Education -->
-  <section id="education" class="paper-section">
-    <h2>Education</h2>
-    <ul>
-      <li>
-        <strong>MS in Computer Science</strong>, University of New Hampshire 
-        (2025 - Current)
-      </li>
-      <li>
-        <strong>BSc in Robotics & Mechatronics Engineering</strong>, University of Dhaka 
-        (2017 - 2021) | CGPA: 3.71/4.00
-      </li>
+<!-- ==================== NAV ==================== -->
+<nav>
+  <div class="container">
+    <span class="nav-name">Riad Ahmed</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#publications">Papers</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </section>
+  </div>
+</nav>
 
-  <!-- PAPER SECTION 2: Research Interest -->
-  <section id="research-interest" class="paper-section">
-    <h2>Research Interest</h2>
-    <p>
-      Safe Imitation Learning, Robot Learning, Foundation Models, Large Language Models, 
-      Intelligent System Design, Computer Vision
-    </p>
-  </section>
+<!-- ==================== HERO ==================== -->
+<header class="hero" id="about">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-photo">RA</div>
+      <div class="hero-text">
+        <h1>Riad Ahmed</h1>
+        <p class="subtitle">Ph.D. Student in Computer Science &middot; University of New Hampshire</p>
+        <p class="bio">
+          I am a Ph.D. student at the <strong>University of New Hampshire</strong>, advised by 
+          <a href="https://www.cs.unh.edu/~mbegum/" target="_blank">Dr. Momotaz Begum</a> 
+          in the <strong>Cognitive Assistive Robotics Lab (CARL Lab)</strong>. My research focuses on 
+          making imitation learning policies <em>safe</em> and <em>reliable</em> for real-world robot 
+          deployment. I work on runtime safety monitoring, control-theoretic safety filters, and 
+          generative policy architectures (flow matching, diffusion) for robotic manipulation. 
+          I validate all my work on a physical Franka Emika Panda robot.
+        </p>
+        <p class="bio" style="margin-top: 10px;">
+          Previously, I earned my B.Sc. in Robotics and Mechatronics Engineering from the 
+          University of Dhaka and served as a Lecturer at BRAC University. I have also worked 
+          as a Machine Learning Engineer in industry, shipping multi-camera video analytics 
+          and computer vision products.
+        </p>
 
-  <!-- PAPER SECTION 3: Publications -->
-  <section id="publications" class="paper-section">
+        <div class="hero-links">
+          <a href="mailto:Riad.Ahmed@unh.edu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+          <a href="https://scholar.google.com/citations?user=iwkN68QAAAAJ&hl=en&oi=ao" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Scholar
+          </a>
+          <a href="https://github.com/riadAhmed-prog" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.382 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.838 1.234 1.91 1.234 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .322.216.694.825.576C20.565 21.795 24 17.298 24 12 24 5.37 18.627 0 12 0z"/></svg>
+            GitHub
+          </a>
+          <a href="tel:+16038174093">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +1-603-817-4093
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== RESEARCH INTERESTS ==================== -->
+<section id="interests">
+  <div class="container">
+    <h2>Research Interests</h2>
+    <div class="interests-grid">
+      <span class="interest-tag">Safe Imitation Learning</span>
+      <span class="interest-tag">Runtime Safety Monitoring</span>
+      <span class="interest-tag">Flow Matching Policies</span>
+      <span class="interest-tag">Diffusion Policy</span>
+      <span class="interest-tag">Control-Invariant Sets</span>
+      <span class="interest-tag">VLA / VLM Architectures</span>
+      <span class="interest-tag">Embodied Intelligence</span>
+      <span class="interest-tag">Robotic Manipulation</span>
+      <span class="interest-tag">3D Gaussian Splatting</span>
+      <span class="interest-tag">Computer Vision</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PUBLICATIONS ==================== -->
+<section id="publications">
+  <div class="container">
     <h2>Publications</h2>
-    <ul>
-      <li>
-        Ahmed R, Abdullah R, Jamal L. <em>STPT: Spatio-Temporal Polychromatic Trajectory 
-        Based Elderly Exercise Evaluation System.</em> IEEE Access, 2023.
-      </li>
-      <li>
-        Abdullah, Raiyaan, Riad Ahmed, and Lafifa Jamal. <em>A Novel IOT-Based 
-        Medicine Consumption System for Elders.</em> SN Computer Science 3 (2022): 471.
-      </li>
-      <li>
-        N. Irtisam, R. Ahmed, MN. Akash, R. Abdullah, S. Sarker, S. Rahman, L. Jamal. 
-        <em>Pathfinder: A Fog Assisted Vision-Based System for Optimal Path Selection 
-        of Service Robots.</em> ICIEV & icIVPR (2020).
-      </li>
-      <li>
-        Imran, A., Ahmed, R., Hasan, M.M. et al. 
-        <em>FaceEngine: A Tracking-Based Framework for Real-Time Face Recognition 
-        in Video Surveillance System.</em> SN Comput Sci 5, 609 (2024).
-      </li>
-      <li>
-        A. M. Chowdhury, A. Imran, M. M. Hasan, R. Ahmed, A. Azad, S. A. Alyami. 
-        <em>U-ActionNet: Dual-Pathway Fourier Networks With Region-of-Interest Module 
-        for Efficient Action Recognition in UAV Surveillance.</em> IEEE Access, vol. 12 (2024).
-      </li>
-    </ul>
-  </section>
 
-  <!-- PAPER SECTION 4: Research Experience -->
-  <section id="research-experiences" class="paper-section">
-    <h2>Research Experience</h2>
-    <ul>
-      <li>
-        <strong>Research Assistant</strong> – Cognitive Assistive Robotics Lab, 
-        University of New Hampshire (Jan 2025 - Current). <br/>
-        Focusing on Safe Imitation Learning with Dr. Momotaz Begum.
-      </li>
-      <li>
-        <strong>Co-Founder & Supervisor</strong> – Robotics & Intelligent System (RIS) 
-        Research Group, BRAC University (May 2023 - Current). <br/>
-        Multi-agent pathfinding and reinforcement learning for service robots.
-      </li>
-      <li>
-        <strong>Research Assistant</strong> – University of Dhaka (May 2022 - Current). <br/>
-        AI-based Bengali Handwriting Teaching Robot (Haate-khori), among other projects.
-      </li>
-    </ul>
-  </section>
+    <div class="section-divider">Under Review</div>
 
-  <!-- PAPER SECTION 5: Teaching -->
-  <section id="teaching" class="paper-section">
-    <h2>Teaching Experience</h2>
-    <ul>
-      <li>
-        <strong>Lecturer (On Study Leave)</strong>, BRAC University 
-        (Jan 2023 - Current)<br/>
-        Courses: Introduction to Robotics (CSE461), Programming Language II (CSE111)
-      </li>
-      <li>
-        <strong>Instructor</strong>, AI & Robotics, Cumilla Victoria Govt. College (2022)
-      </li>
-    </ul>
-  </section>
+    <!-- TAIL-Safe (RSS) -->
+    <div class="paper-card">
+      <span class="venue-badge rss">RSS 2026</span>
+      <span class="status">Under Review</span>
+      <h3>TAIL-Safe: Task-Agnostic Safety Monitoring for Imitation Learning Policies</h3>
+      <p class="authors"><strong>R. Ahmed</strong>, M. Begum</p>
+      <p class="description">
+        Imitation learning policies like flow matching and diffusion can fail catastrophically under 
+        minor runtime perturbations&mdash;even within their training distribution&mdash;due to 
+        sensitivity to initial conditions and compounding approximation errors. <strong>TAIL-Safe</strong> 
+        is a runtime safety watchdog that addresses three key questions: <em>what</em> can go wrong, 
+        <em>where</em> in state space failures occur, and <em>how</em> to avoid them.
+      </p>
+      <p class="description" style="margin-top: 8px;">
+        We learn a Lipschitz-continuous Safety Q-value function that maps state-action pairs to a 
+        long-term safety score based on three task-agnostic criteria: <strong>visibility</strong> 
+        (can the robot see the target?), <strong>recognizability</strong> (can the visual encoder 
+        identify it?), and <strong>graspability</strong> (can the end-effector reach it?). The 
+        zero-superlevel set of this Q-function defines an empirical control-invariant set over 
+        state-action pairs. When the nominal policy proposes an action outside this set, a recovery 
+        controller inspired by Nagumo's theorem uses gradient ascent on the Q-function to steer 
+        the system back to safety. To train this Q-function without risking hardware, we build a 
+        high-fidelity digital twin using <strong>3D Gaussian Splatting</strong> (~20 min: 5 min 
+        capture + 15 min reconstruction), enabling systematic failure data collection. Experiments 
+        on a Franka Emika robot show that flow-matching policies which otherwise fail under 
+        perturbations achieve <strong>100% task success</strong> (up from 20%) when monitored by TAIL-Safe.
+      </p>
+      <div class="tags">
+        <span>Safety Monitoring</span>
+        <span>Imitation Learning</span>
+        <span>Q-Value Function</span>
+        <span>Nagumo's Theorem</span>
+        <span>3D Gaussian Splatting</span>
+        <span>Franka Panda</span>
+      </div>
+    </div>
 
-  <!-- PAPER SECTION 6: Industry Experience -->
-  <section id="industry" class="paper-section">
-    <h2>Industry Experience</h2>
-    <ul>
-      <li>
-        <strong>Machine Learning Engineer</strong>, Headless Technologies Ltd 
-        (Dec 2021 - Jan 2023). <br/>
-        Developed AI-enabled computer vision solutions for video analytics, 
-        person tracking, and AutoML pipelines.
-      </li>
-      <li>
-        <strong>Computer Vision Engineer (Part-Time)</strong>, Pranon Group 
-        (Sep 2022 - Dec 2022). <br/>
-        Worked on face recognition & multi-camera activity tracking.
-      </li>
-    </ul>
-  </section>
+    <!-- Execution Guarantee (IROS) -->
+    <div class="paper-card">
+      <span class="venue-badge iros">IROS 2026</span>
+      <span class="status">Under Review</span>
+      <h3>To Do or Not to Do: Ensuring the Safety of Visuomotor Policies Learned from Demonstrations</h3>
+      <p class="authors"><strong>R. Ahmed</strong>, M. N. Akash, M. Begum</p>
+      <p class="description">
+        Task success alone is insufficient for deploying IL policies in safety-critical settings. 
+        This paper introduces <strong>execution guarantee</strong>&mdash;a policy-agnostic safety 
+        measure that guarantees maximum task success for any visuomotor IL policy from within a 
+        specific region of state space, despite minor runtime variations.
+      </p>
+      <p class="description" style="margin-top: 8px;">
+        We model an IL-powered robot as a continuous-time dynamical system and construct a 
+        <strong>control-invariant safe set</strong> defined by two perceptual constraints: 
+        <strong>field-of-view</strong> (the target object must remain within the camera frustum) 
+        and <strong>recognizability</strong> (the policy's visual encoder must be able to identify the 
+        object). Using novel view synthesis, we render the scene from hypothetical camera poses to 
+        evaluate these constraints across the workspace. We then prove the set's forward invariance 
+        via <strong>Nagumo's sub-tangentiality condition</strong> (1942): at every boundary state, 
+        there exists an admissible action in the tangent cone that keeps the trajectory inside the 
+        safe region. A real-time <strong>QP-based safety filter</strong> projects policy actions onto 
+        this tangent cone with minimal intervention&mdash;the policy runs freely when safe, and only 
+        receives corrections at the boundary. Experiments with diffusion and flow-matching policies 
+        on a Franka robot demonstrate that the filter enables maximum task success with formal safety 
+        guarantees, and the recovery controller (a by-product of the analysis) can even improve 
+        performance beyond the nominal policy.
+      </p>
+      <div class="tags">
+        <span>Execution Guarantee</span>
+        <span>Control-Invariant Set</span>
+        <span>Nagumo's Theorem</span>
+        <span>QP Safety Filter</span>
+        <span>Novel View Synthesis</span>
+        <span>Visuomotor Policy</span>
+      </div>
+    </div>
 
-  <!-- PAPER SECTION 7: Projects -->
-  <section id="projects" class="paper-section">
-    <h2>Selected Research Projects</h2>
-    <ul>
-      <li><strong>Elderly People Assistance System</strong>: Medicine intake & daily exercises.</li>
-      <li><strong>IV Therapy Administration</strong>: Monitors saline levels with remote control.</li>
-      <li><strong>AIgriculture Robot</strong>: YOLO-based weed detection & removal.</li>
-      <li><strong>Q-Learning Stock Trader</strong>: RL agent for buy/hold/sell decisions.</li>
-      <li><strong>Vision-Based Object Sorting</strong>: 5 DOF manipulator using OCR detection.</li>
-    </ul>
-  </section>
+    <!-- Flow Matching Policy (IROS) -->
+    <div class="paper-card">
+      <span class="venue-badge iros">IROS 2026</span>
+      <span class="status">Under Review</span>
+      <h3>Consistency Flow Matching for Deterministic Visuomotor Policy Learning</h3>
+      <p class="authors"><strong>R. Ahmed</strong>, S. Nag, M. N. Akash, M. Begum</p>
+      <p class="description">
+        Diffusion-based policies generate actions via a stochastic denoising process (SDE), which 
+        requires many inference steps and produces jittery control signals due to Brownian motion. 
+        This paper proposes a <strong>deterministic visuomotor policy</strong> based on 
+        <strong>flow matching</strong>&mdash;an ODE-based generative framework that transports noise 
+        to actions along straight-line probability paths, eliminating stochasticity entirely.
+      </p>
+      <p class="description" style="margin-top: 8px;">
+        The key challenge is <em>integration drift</em>: even with straight-line targets, small 
+        velocity prediction errors accumulate during ODE integration. We address this with 
+        <strong>Consistency Flow Matching</strong>&mdash;a composite training objective with four 
+        complementary losses: (1) <strong>Conditional Flow Matching (CFM)</strong> aligns the 
+        learned vector field with optimal straight-line transport; (2) <strong>Multi-step 
+        Consistency</strong> trains on integrated trajectory segments rather than instantaneous 
+        snapshots, forcing the model to produce globally coherent paths; (3) <strong>Velocity 
+        Regularization</strong> penalizes jerk and excessive velocity magnitudes, acting as a 
+        kinematic prior for smooth actuator-friendly control; (4) <strong>Action MSE</strong> 
+        provides a direct regression signal to accelerate early-stage convergence. The resulting 
+        policy generates smooth, jitter-free trajectories and can be solved with large ODE steps 
+        for fast inference. Experiments on a Franka Panda demonstrate reliable contact-rich 
+        manipulation with deterministic action generation.
+      </p>
+      <div class="tags">
+        <span>Flow Matching</span>
+        <span>Consistency Training</span>
+        <span>ODE-Based Policy</span>
+        <span>Deterministic Control</span>
+        <span>Visuomotor Learning</span>
+        <span>Franka Panda</span>
+      </div>
+    </div>
 
-  <!-- PAPER SECTION 8: Honors & Awards -->
-  <section id="awards" class="paper-section">
-    <h2>Honors & Awards</h2>
-    <ul>
-      <li>Government Honors Scholarship (2023)</li>
-      <li>IFIC Bank Trust Fund Research Grant (2022)</li>
-      <li>Pre-Graduation Scholarship (2018-19)</li>
-      <li>Finalist (Top 10), Robi Datathon 2.0 (2022)</li>
-      <li>Semi-Finalist, “Esho Robot Banai” on Channel i (2019)</li>
-      <li>Champion, Intra DU Project Showcase (2019)</li>
-      <li>2nd Runners-Up, DUET Techfest (2018)</li>
-    </ul>
-  </section>
+    <div class="section-divider">Published</div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Riad Ahmed. All rights reserved.</p>
-    <p>Powered by GitHub Pages</p>
-  </footer>
+    <!-- Published papers -->
+    <div class="paper-card">
+      <span class="venue-badge access">IEEE Access 2023</span>
+      <span class="status published">Published</span>
+      <h3>STPT: Spatio-Temporal Polychromatic Trajectory Based Elderly Exercise Evaluation</h3>
+      <p class="authors"><strong>R. Ahmed</strong>, R. Abdullah, L. Jamal</p>
+      <p class="description">
+        A vision-based system for evaluating elderly exercise quality using spatio-temporal 
+        polychromatic trajectory analysis. The method captures movement patterns over time and 
+        encodes them as color-mapped trajectories for automated assessment, enabling non-intrusive 
+        monitoring of rehabilitation exercises.
+      </p>
+      <div class="paper-links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/10098793" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          IEEE Xplore
+        </a>
+        <a href="https://scholar.google.com/scholar?q=STPT+Spatio-Temporal+Polychromatic+Trajectory+Elderly+Exercise" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+          Google Scholar
+        </a>
+      </div>
+      <div class="tags">
+        <span>Activity Recognition</span>
+        <span>Elderly Care</span>
+        <span>Computer Vision</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="venue-badge sncs">SN Comput. Sci. 2022</span>
+      <span class="status published">Published</span>
+      <h3>A Novel IoT-Based Medicine Consumption System for Elders</h3>
+      <p class="authors">R. Abdullah, <strong>R. Ahmed</strong>, L. Jamal</p>
+      <p class="description">
+        An IoT system that tracks and manages medicine consumption for elderly users, providing 
+        automated reminders, dosage monitoring, and caregiver notifications to improve medication 
+        adherence.
+      </p>
+      <div class="paper-links">
+        <a href="https://link.springer.com/article/10.1007/s42979-022-01367-8" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Springer
+        </a>
+        <a href="https://scholar.google.com/scholar?q=Novel+IoT-Based+Medicine+Consumption+System+Elders" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+          Google Scholar
+        </a>
+      </div>
+      <div class="tags">
+        <span>IoT</span>
+        <span>Healthcare</span>
+        <span>Elderly Care</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="venue-badge iciev">ICIEV/icIVPR 2020</span>
+      <span class="status published">Published</span>
+      <h3>Pathfinder: A Fog-Assisted Vision-Based System for Optimal Path Selection of Service Robots</h3>
+      <p class="authors">N. Irtisam, <strong>R. Ahmed</strong>, M. N. Akash et al.</p>
+      <p class="description">
+        A fog-computing framework for service robot navigation. The system uses vision-based local 
+        mapping with a YOLOv7 detector and offloads path-planning computation to a fog backend, 
+        enabling resource-constrained robots to navigate optimally in dynamic environments.
+      </p>
+      <div class="paper-links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/9306573" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          IEEE Xplore
+        </a>
+        <a href="https://scholar.google.com/scholar?q=Pathfinder+Fog-Assisted+Vision-Based+System+Optimal+Path+Selection+Service+Robots" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+          Google Scholar
+        </a>
+      </div>
+      <div class="tags">
+        <span>Fog Computing</span>
+        <span>Robot Navigation</span>
+        <span>YOLO</span>
+        <span>Path Planning</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="venue-badge sncs">SN Comput. Sci. 2024</span>
+      <span class="status published">Published</span>
+      <h3>FaceEngine: Tracking-Based Real-Time Face Recognition in Video Surveillance</h3>
+      <p class="authors">A. Imran, <strong>R. Ahmed</strong>, M. M. Hasan et al.</p>
+      <p class="description">
+        A real-time face recognition pipeline for video surveillance that combines face detection 
+        with embedding-based tracking to maintain identity consistency across frames, achieving 
+        robust performance in multi-camera setups.
+      </p>
+      <div class="paper-links">
+        <a href="https://link.springer.com/article/10.1007/s42979-024-02922-1" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Springer
+        </a>
+        <a href="https://scholar.google.com/scholar?q=FaceEngine+Tracking-Based+Real-Time+Face+Recognition+Video+Surveillance" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+          Google Scholar
+        </a>
+      </div>
+      <div class="tags">
+        <span>Face Recognition</span>
+        <span>Video Surveillance</span>
+        <span>Real-Time Tracking</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="venue-badge access">IEEE Access 2024</span>
+      <span class="status published">Published</span>
+      <h3>U-ActionNet: Dual-Pathway Fourier Networks for Action Recognition in UAV Surveillance</h3>
+      <p class="authors">A. M. Chowdhury et al., <strong>R. Ahmed</strong></p>
+      <p class="description">
+        A dual-pathway neural architecture using Fourier-based feature extraction for human action 
+        recognition in UAV (drone) surveillance footage. The model handles the unique challenges 
+        of aerial viewpoints, small subject scales, and varying altitudes.
+      </p>
+      <div class="paper-links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/10794748" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          IEEE Xplore
+        </a>
+        <a href="https://scholar.google.com/scholar?q=U-ActionNet+Dual-Pathway+Fourier+Networks+Action+Recognition+UAV+Surveillance" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+          Google Scholar
+        </a>
+      </div>
+      <div class="tags">
+        <span>Action Recognition</span>
+        <span>UAV Surveillance</span>
+        <span>Fourier Networks</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== EXPERIENCE ==================== -->
+<section id="experience">
+  <div class="container">
+    <h2>Experience</h2>
+
+    <div class="section-divider">Research</div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Research Assistant &mdash; CARL Lab, University of New Hampshire</h3>
+        <p class="meta">Jan 2025 &ndash; Present &middot; Durham, NH, USA &middot; Advisor: Dr. Momotaz Begum</p>
+        <p>Runtime safety for imitation learning (TAIL-Safe), formal execution guarantees for visuomotor policies, 
+           and consistency flow matching for deterministic robot control. All work validated on a Franka Emika Panda 
+           in simulation and the real world.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Co-Founder &amp; Research Supervisor &mdash; RIS Research Group, BRAC University</h3>
+        <p class="meta">May 2023 &ndash; Dec 2024 &middot; Dhaka, Bangladesh</p>
+        <p>Led extension of PathFinder to a multi-robot system with RL-based collision-free path planning 
+           and YOLOv7 local mapping over a fog-computing backend.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Research Assistant &mdash; University of Dhaka</h3>
+        <p class="meta">May 2022 &ndash; Dec 2024 &middot; Dhaka, Bangladesh &middot; Advisors: Prof. Lafifa Jamal &amp; Dr. Sejuti Rahman</p>
+        <p>Built Haate-khori (a co-present teaching robot for Bengali handwriting recognition with YOLO and 11 
+           classification networks for a child HRI study) and IHABOT (an autonomous hospital robot using SLAM 
+           navigation and onboard vital-signs sensing).</p>
+      </div>
+    </div>
+
+    <div class="section-divider">Industry</div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Machine Learning Engineer &mdash; Headless Technologies Limited</h3>
+        <p class="meta">Dec 2021 &ndash; Jan 2023 &middot; Dhaka, Bangladesh</p>
+        <p>Shipped a multi-camera video analytics product to a Japanese enterprise client with real-time 
+           person tracking (DeepSort/StrongSort). Built an AutoML pipeline for model selection and hyperparameter tuning.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Computer Vision Engineer &mdash; Pranon Group</h3>
+        <p class="meta">Sep 2022 &ndash; Dec 2022 &middot; Dhaka, Bangladesh</p>
+        <p>Built a multi-camera face recognition system with embedding-based re-ID and activity tracking 
+           for office employee monitoring across camera feeds.</p>
+      </div>
+    </div>
+
+    <div class="section-divider">Teaching</div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Lecturer &mdash; Dept. of CSE, BRAC University</h3>
+        <p class="meta">Jan 2023 &ndash; Present (on study leave) &middot; Dhaka, Bangladesh</p>
+        <p>Taught CSE 461 (Intro to Robotics) and CSE 111 (Programming Language II). 
+           Supervised two senior theses on autonomous agriculture and space-telescope image analysis.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== EDUCATION ==================== -->
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+
+    <div class="edu-item">
+      <h3>University of New Hampshire</h3>
+      <p class="meta">M.S. (leading to Ph.D.) in Computer Science &middot; GPA: 4.00/4.00 &middot; Jan 2025 &ndash; Present &middot; Durham, NH, USA</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>University of Dhaka</h3>
+      <p class="meta">B.Sc. in Robotics and Mechatronics Engineering &middot; GPA: 3.71/4.00 &middot; Jan 2017 &ndash; Dec 2021 &middot; Dhaka, Bangladesh</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== SKILLS ==================== -->
+<section id="skills">
+  <div class="container">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <p>Python, C/C++, Java, MATLAB, SQL</p>
+      </div>
+      <div class="skill-group">
+        <h4>ML / DL Frameworks</h4>
+        <p>PyTorch, TensorFlow, Hugging Face Transformers, Diffusers, JAX</p>
+      </div>
+      <div class="skill-group">
+        <h4>Robotics &amp; Simulation</h4>
+        <p>ROS/ROS 2, MoveIt, MuJoCo, Isaac Sim, Franka Control Interface</p>
+      </div>
+      <div class="skill-group">
+        <h4>Learning &amp; Generative Models</h4>
+        <p>Diffusion Policy, Flow Matching, VLA/VLM Architectures, Imitation Learning, RL</p>
+      </div>
+      <div class="skill-group">
+        <h4>Computer Vision</h4>
+        <p>OpenCV, YOLO (v5–v8), 3D Gaussian Splatting, NeRF, Multi-View Processing, Segmentation</p>
+      </div>
+      <div class="skill-group">
+        <h4>Tools</h4>
+        <p>Git, Docker, Linux, CUDA, AWS, LaTeX</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AWARDS ==================== -->
+<section id="awards">
+  <div class="container">
+    <h2>Honors &amp; Awards</h2>
+    <div class="award-item">
+      <span class="award-name"><strong>Government Honors Scholarship</strong> &mdash; Academic Excellence in B.Sc.</span>
+      <span class="award-year">2023</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name"><strong>IFIC Bank Trust Fund Research Grant</strong></span>
+      <span class="award-year">2022</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name"><strong>Finalist</strong> (Top 10 / 325 teams) &mdash; Robi Datathon 2.0</span>
+      <span class="award-year">2022</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name"><strong>Champion</strong> &mdash; Intra-DU Project Showcasing</span>
+      <span class="award-year">2019</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p style="font-size: 0.95rem; line-height: 1.75;">
+      I am always open to discussing research collaborations, internship opportunities, or anything related 
+      to safe robot learning. Feel free to reach out!
+    </p>
+    <div class="hero-links" style="margin-top: 14px;">
+      <a href="mailto:Riad.Ahmed@unh.edu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Riad.Ahmed@unh.edu
+      </a>
+      <a href="https://scholar.google.com/citations?user=iwkN68QAAAAJ&hl=en&oi=ao" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+        Google Scholar
+      </a>
+      <a href="https://github.com/riadAhmed-prog" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.382 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.838 1.234 1.91 1.234 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .322.216.694.825.576C20.565 21.795 24 17.298 24 12 24 5.37 18.627 0 12 0z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="container">
+    &copy; 2026 Riad Ahmed &middot; University of New Hampshire
+  </div>
+</footer>
+
 </body>
 </html>
