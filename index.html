@@ -102,7 +102,7 @@
     <!-- TAIL-Safe (RSS) -->
     <div class="paper-card">
       <span class="venue-badge rss">RSS 2026</span>
-      <span class="status">Accepted</span>
+      <span class="status published">Published</span>
       <h3>TAIL-Safe: Task-Agnostic Safety Monitoring for Imitation Learning Policies</h3>
       <p class="authors"><strong>R. Ahmed</strong>, M. Begum</p>
       <p class="description">
@@ -126,6 +126,12 @@
         on a Franka Emika robot show that flow-matching policies which otherwise fail under 
         perturbations achieve <strong>100% task success</strong> (up from 20%) when monitored by TAIL-Safe.
       </p>
+      <div class="paper-links">
+        <a href="https://arxiv.org/abs/2605.01195" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          arXiv:2605.01195
+        </a>
+      </div>
       <div class="tags">
         <span>Safety Monitoring</span>
         <span>Imitation Learning</span>
@@ -136,48 +142,10 @@
       </div>
     </div>
 
-    <!-- Execution Guarantee (IROS) -->
+    <!-- Consistency Flow Matching (IROS) -->
     <div class="paper-card">
       <span class="venue-badge iros">IROS 2026</span>
-      <span class="status">Under Review</span>
-      <h3>To Do or Not to Do: Ensuring the Safety of Visuomotor Policies Learned from Demonstrations</h3>
-      <p class="authors"><strong>R. Ahmed</strong>, M. N. Akash, M. Begum</p>
-      <p class="description">
-        Task success alone is insufficient for deploying IL policies in safety-critical settings. 
-        This paper introduces <strong>execution guarantee</strong>&mdash;a policy-agnostic safety 
-        measure that guarantees maximum task success for any visuomotor IL policy from within a 
-        specific region of state space, despite minor runtime variations.
-      </p>
-      <p class="description" style="margin-top: 8px;">
-        We model an IL-powered robot as a continuous-time dynamical system and construct a 
-        <strong>control-invariant safe set</strong> defined by two perceptual constraints: 
-        <strong>field-of-view</strong> (the target object must remain within the camera frustum) 
-        and <strong>recognizability</strong> (the policy's visual encoder must be able to identify the 
-        object). Using novel view synthesis, we render the scene from hypothetical camera poses to 
-        evaluate these constraints across the workspace. We then prove the set's forward invariance 
-        via <strong>Nagumo's sub-tangentiality condition</strong> (1942): at every boundary state, 
-        there exists an admissible action in the tangent cone that keeps the trajectory inside the 
-        safe region. A real-time <strong>QP-based safety filter</strong> projects policy actions onto 
-        this tangent cone with minimal intervention&mdash;the policy runs freely when safe, and only 
-        receives corrections at the boundary. Experiments with diffusion and flow-matching policies 
-        on a Franka robot demonstrate that the filter enables maximum task success with formal safety 
-        guarantees, and the recovery controller (a by-product of the analysis) can even improve 
-        performance beyond the nominal policy.
-      </p>
-      <div class="tags">
-        <span>Execution Guarantee</span>
-        <span>Control-Invariant Set</span>
-        <span>Nagumo's Theorem</span>
-        <span>QP Safety Filter</span>
-        <span>Novel View Synthesis</span>
-        <span>Visuomotor Policy</span>
-      </div>
-    </div>
-
-    <!-- Flow Matching Policy (IROS) -->
-    <div class="paper-card">
-      <span class="venue-badge iros">IROS 2026</span>
-      <span class="status">Under Review</span>
+      <span class="status published">Published</span>
       <h3>Consistency Flow Matching for Deterministic Visuomotor Policy Learning</h3>
       <p class="authors"><strong>R. Ahmed</strong>, S. Nag, M. N. Akash, M. Begum</p>
       <p class="description">
@@ -202,6 +170,12 @@
         for fast inference. Experiments on a Franka Panda demonstrate reliable contact-rich 
         manipulation with deterministic action generation.
       </p>
+      <div class="paper-links">
+        <a href="https://arxiv.org/abs/2605.08511" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          arXiv:2605.08511
+        </a>
+      </div>
       <div class="tags">
         <span>Flow Matching</span>
         <span>Consistency Training</span>
@@ -209,6 +183,79 @@
         <span>Deterministic Control</span>
         <span>Visuomotor Learning</span>
         <span>Franka Panda</span>
+      </div>
+    </div>
+
+    <div class="section-divider">Under Review</div>
+
+    <!-- MIND (CoRL) -->
+    <div class="paper-card">
+      <span class="venue-badge iros">CoRL 2026</span>
+      <span class="status">Under Review</span>
+      <h3>MIND: Mechanistic Interpretability for Neural Diagnosis of Visuomotor Policies</h3>
+      <p class="authors"><strong>R. Ahmed</strong>, S. Nag, M. N. Akash, M. Begum</p>
+      <p class="description">
+        Imitation-learned visuomotor policies can solve difficult manipulation tasks, but a failed 
+        rollout rarely explains what changed inside the policy before the mistake. Most monitors 
+        return a scalar anomaly score; the alarm and the explanation remain separate. <strong>MIND</strong> 
+        instead monitors sparse internal features by training a sparse autoencoder on intermediate 
+        activations and naming an atom only when its firing matches a logged task-evidence variable.
+      </p>
+      <p class="description" style="margin-top: 8px;">
+        A success envelope is calibrated from successful rollouts, and at test time all atoms 
+        contribute to the detector score. The system raises a hard diagnostic alarm only when named 
+        atoms explain a sufficient share of the same residual that drives the anomaly score. In 
+        simulation and on a real Franka DP3 dataset, MIND detects failures with near-perfect 
+        precision and recall while preserving diagnostic support.
+      </p>
+      <div class="tags">
+        <span>Mechanistic Interpretability</span>
+        <span>Visuomotor Diagnosis</span>
+        <span>Sparse Autoencoder</span>
+        <span>Anomaly Detection</span>
+        <span>DP3 / Diffusion Policy</span>
+        <span>CoRL</span>
+      </div>
+    </div>
+
+    <div class="section-divider">Other Publication</div>
+
+    <!-- Execution Guarantee as Other Publication -->
+    <div class="paper-card">
+      <span class="venue-badge iros">arXiv</span>
+      <span class="status">Preprint</span>
+      <h3>To Do or Not to Do: Ensuring the Safety of Visuomotor Policies Learned from Demonstrations</h3>
+      <p class="authors"><strong>R. Ahmed</strong>, M. N. Akash, M. Begum</p>
+      <p class="description">
+        Task success alone is insufficient for deploying IL policies in safety-critical settings. 
+        This paper introduces <strong>execution guarantee</strong>&mdash;a policy-agnostic safety 
+        measure that guarantees maximum task success for any visuomotor IL policy from within a 
+        specific region of state space, despite minor runtime variations.
+      </p>
+      <p class="description" style="margin-top: 8px;">
+        We model an IL-powered robot as a continuous-time dynamical system and construct a 
+        <strong>control-invariant safe set</strong> defined by two perceptual constraints: 
+        <strong>field-of-view</strong> (the target object must remain within the camera frustum) 
+        and <strong>recognizability</strong> (the policy's visual encoder must be able to identify the 
+        object). Using novel view synthesis, we render the scene from hypothetical camera poses to 
+        evaluate these constraints across the workspace. A real-time <strong>QP-based safety filter</strong> 
+        projects policy actions onto the safe region with minimal intervention. Experiments with 
+        diffusion and flow-matching policies on a Franka robot demonstrate the filter’s ability to 
+        preserve maximum task success while enforcing formal safety properties.
+      </p>
+      <div class="paper-links">
+        <a href="https://arxiv.org/abs/2605.01201" target="_blank" class="paper-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          arXiv:2605.01201
+        </a>
+      </div>
+      <div class="tags">
+        <span>Execution Guarantee</span>
+        <span>Control-Invariant Set</span>
+        <span>Nagumo's Theorem</span>
+        <span>QP Safety Filter</span>
+        <span>Novel View Synthesis</span>
+        <span>Visuomotor Policy</span>
       </div>
     </div>
 
