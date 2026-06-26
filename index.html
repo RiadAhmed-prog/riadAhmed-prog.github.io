@@ -123,9 +123,17 @@
         the system back to safety. To train this Q-function without risking hardware, we build a 
         high-fidelity digital twin using <strong>3D Gaussian Splatting</strong> (~20 min: 5 min 
         capture + 15 min reconstruction), enabling systematic failure data collection. Experiments 
-        on a Franka Emika robot show that flow-matching policies which otherwise fail under 
+        on a Franka Emika robot show that flow-matching policies which otherwise fail under
         perturbations achieve <strong>100% task success</strong> (up from 20%) when monitored by TAIL-Safe.
       </p>
+      <figure class="paper-video">
+        <video controls preload="metadata" playsinline poster="">
+          <source src="RSS26/TAIL_Safe_demo_video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+          <a href="RSS26/TAIL_Safe_demo_video.mp4">Download the demo video</a>.
+        </video>
+        <figcaption>Demo presentation — TAIL-Safe (RSS 2026)</figcaption>
+      </figure>
       <div class="paper-links">
         <a href="https://arxiv.org/abs/2605.01195" target="_blank" class="paper-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -166,10 +174,18 @@
         Regularization</strong> penalizes jerk and excessive velocity magnitudes, acting as a 
         kinematic prior for smooth actuator-friendly control; (4) <strong>Action MSE</strong> 
         provides a direct regression signal to accelerate early-stage convergence. The resulting 
-        policy generates smooth, jitter-free trajectories and can be solved with large ODE steps 
-        for fast inference. Experiments on a Franka Panda demonstrate reliable contact-rich 
+        policy generates smooth, jitter-free trajectories and can be solved with large ODE steps
+        for fast inference. Experiments on a Franka Panda demonstrate reliable contact-rich
         manipulation with deterministic action generation.
       </p>
+      <figure class="paper-video">
+        <video controls preload="metadata" playsinline poster="">
+          <source src="IROS26/IROS.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+          <a href="IROS26/IROS.mp4">Download the demo video</a>.
+        </video>
+        <figcaption>Demo presentation — Consistency Flow Matching (IROS 2026)</figcaption>
+      </figure>
       <div class="paper-links">
         <a href="https://arxiv.org/abs/2605.08511" target="_blank" class="paper-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -205,9 +221,17 @@
         A success envelope is calibrated from successful rollouts, and at test time all atoms 
         contribute to the detector score. The system raises a hard diagnostic alarm only when named 
         atoms explain a sufficient share of the same residual that drives the anomaly score. In 
-        simulation and on a real Franka DP3 dataset, MIND detects failures with near-perfect 
+        simulation and on a real Franka DP3 dataset, MIND detects failures with near-perfect
         precision and recall while preserving diagnostic support.
       </p>
+      <figure class="paper-video">
+        <video controls preload="metadata" playsinline poster="">
+          <source src="CORL26/corl_26_presentation_video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+          <a href="CORL26/corl_26_presentation_video.mp4">Download the demo video</a>.
+        </video>
+        <figcaption>Demo presentation — MIND (CoRL 2026, under review)</figcaption>
+      </figure>
       <div class="tags">
         <span>Mechanistic Interpretability</span>
         <span>Visuomotor Diagnosis</span>

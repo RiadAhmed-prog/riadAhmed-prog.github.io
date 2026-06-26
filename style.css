@@ -319,6 +319,28 @@ section h2 {
   color: var(--text);
 }
 
+/* ---------- Paper Demo Video ---------- */
+.paper-video {
+  margin-top: 16px;
+}
+
+.paper-video video {
+  display: block;
+  width: 100%;
+  max-height: 460px;
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.paper-video figcaption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
 .paper-card .paper-links {
   display: flex;
   flex-wrap: wrap;
