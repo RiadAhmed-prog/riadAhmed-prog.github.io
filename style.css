@@ -277,6 +277,21 @@ section h2 {
   color: #943126;
 }
 
+.venue-badge.iclr {
+  background: #fcf3cf;
+  color: #9a7d0a;
+}
+
+.venue-badge.icra {
+  background: #d1f2eb;
+  color: #117864;
+}
+
+.venue-badge.arxiv {
+  background: #f2f3f4;
+  color: #566573;
+}
+
 .paper-card .status {
   display: inline-block;
   font-size: 0.72rem;
@@ -293,6 +308,55 @@ section h2 {
 .paper-card .status.published {
   background: #d4edda;
   color: #155724;
+}
+
+.paper-card .status.prep {
+  background: #eaecee;
+  color: #424949;
+}
+
+/* Headline result of a paper, set apart from the description */
+.paper-card .result {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text);
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--tag-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 3px;
+}
+
+/* "Looking for an internship" line in the hero */
+.hero-text .looking {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Compact list of pre-Ph.D. papers */
+.earlier-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.earlier-list li {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.earlier-list li:last-child {
+  border-bottom: none;
+}
+
+.earlier-list .earlier-title {
+  color: var(--text);
+  font-weight: 500;
 }
 
 .paper-card h3 {
@@ -528,8 +592,19 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  /* The hero already shows the name; hide it in the bar so all five links fit */
+  nav .nav-name {
+    display: none;
+  }
+
+  nav .container {
+    justify-content: center;
+  }
+
   nav .nav-links {
     gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   nav .nav-links a {
