@@ -1,0 +1,239 @@
+{
+  "name": "Riad Ahmed",
+  "site_url": "https://riadahmed-prog.github.io/",
+  "description": "Riad Ahmed is a Ph.D. student at the University of New Hampshire working on robot learning: detecting and correcting failures of learned manipulation policies, and policies for long, multi-stage tasks.",
+  "photo": "assets/profile-480.jpg",
+  "photo_alt": "Riad Ahmed standing next to a Franka robot arm in the lab",
+  "bio": [
+    "I'm a Ph.D. student in Computer Science at the University of New Hampshire, advised by [Momotaz Begum](https://www.cs.unh.edu/~mbegum/) in the Cognitive Assistive Robotics Lab. I work on robot learning for manipulation.",
+    "A policy learned from demonstrations can do well in the lab and then fail when the scene changes a little. Most of my work is on detecting those failures and correcting the robot's actions. I also train policies for long, multi-stage tasks. My experiments run on Franka arms, an Inspire dexterous hand and a Boston Dynamics Spot."
+  ],
+  "looking": "**I'm looking for a research internship for summer 2027.** I'm on an F-1 visa and eligible for CPT and OPT.",
+  "links": [
+    {
+      "label": "Riad.Ahmed@unh.edu",
+      "url": "mailto:Riad.Ahmed@unh.edu"
+    },
+    {
+      "label": "CV",
+      "url": "Riad_Ahmed_CV.pdf"
+    },
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=iwkN68QAAAAJ&hl=en&oi=ao"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/riadAhmed-prog"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/riad-ahmed-1a0b3918b"
+    }
+  ],
+  "news": [
+    {
+      "date": "Nov 2026",
+      "text": "[MIND](#p-mind), our paper on detecting and explaining policy failures, is on arXiv."
+    },
+    {
+      "date": "Oct 2026",
+      "text": "**Mok** is submitted to ICRA 2027"
+    },
+    {
+      "date": "Jun 2026",
+      "text": "[Trajectory-consistent flow matching](#p-trajfm) was accepted to IROS 2026."
+    },
+    {
+      "date": "May 2026",
+      "text": "Posted [To Do or Not to Do](#p-todo) on arXiv."
+    },
+    {
+      "date": "Apr 2026",
+      "text": "[TAIL-Safe](#p-tailsafe) was accepted to RSS 2026 in Sydney."
+    },
+    {
+      "date": "Jan 2025",
+      "text": "Started my Ph.D. at UNH."
+    }
+  ],
+  "publications_note": "Papers from my Ph.D.; older work is on [Google Scholar](https://scholar.google.com/citations?user=iwkN68QAAAAJ&hl=en&oi=ao).",
+  "publications": [
+    {
+      "id": "tailsafe",
+      "title": "TAIL-Safe: Task-Agnostic Safety Monitoring for Imitation Learning Policies",
+      "title_url": "https://www.roboticsproceedings.org/rss22/p207.html",
+      "authors": "**Riad Ahmed**, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
+      "venue": "*Robotics: Science and Systems (RSS)*, 2026",
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://www.roboticsproceedings.org/rss22/p207.html"
+        },
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2605.01195"
+        },
+        {
+          "label": "video",
+          "url": "RSS26/TAIL_Safe_demo_video.mp4"
+        }
+      ],
+      "summary": "TAIL-Safe gives each action the policy proposes a long-term safety score and corrects the ones that score low. We trained it on about 500 rollouts per task in a Gaussian Splatting digital twin of our lab. Under perturbations, it took a flow-matching policy on the real robot from 20–25% success to 100% (50 trials on each of two tasks).",
+      "media": {
+        "kind": "clip",
+        "clip": "assets/teasers/tail-safe.mp4",
+        "poster": "assets/teasers/tail-safe.jpg",
+        "full_video": "RSS26/TAIL_Safe_demo_video.mp4",
+        "video_poster": "assets/posters/tail-safe.jpg",
+        "video_title": "TAIL-Safe (RSS 2026)",
+        "duration": "4:57",
+        "alt": "Franka arm moving around a table while TAIL-Safe collects images"
+      }
+    },
+    {
+      "id": "trajfm",
+      "title": "Trajectory-Consistent Flow Matching for Robust Visuomotor Policy Learning",
+      "title_url": "https://arxiv.org/abs/2605.08511",
+      "authors": "**Riad Ahmed**, Sujosh Nag, Moniruzzaman Akash, Mostafa Hussein, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
+      "venue": "*IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*, 2026",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2605.08511"
+        },
+        {
+          "label": "video",
+          "url": "IROS26/IROS.mp4"
+        }
+      ],
+      "summary": "Flow-matching policies are trained on single points of the flow but run by integrating it, so errors build up over a long task. We add supervision on whole segments of the integrated trajectory. Our policy finished two long-horizon tasks on a Franka FR3 in 70% and 60% of 20 trials (DP3 and Consistency FM: none), and a screwdriver task on a Spot in all 20.",
+      "media": {
+        "kind": "clip",
+        "clip": "assets/teasers/traj-fm.mp4",
+        "poster": "assets/teasers/traj-fm.jpg",
+        "full_video": "IROS26/IROS.mp4",
+        "video_poster": "assets/posters/traj-fm.jpg",
+        "video_title": "Trajectory-Consistent Flow Matching (IROS 2026)",
+        "duration": "3:47",
+        "alt": "Franka arm stacking cups"
+      }
+    },
+    {
+      "id": "mind",
+      "title": "Detecting and Explaining Robot Policy Failures from Sparse Internal Features",
+      "title_url": "https://arxiv.org/abs/2611.10400",
+      "authors": "**Riad Ahmed**, Sujosh Nag, Moniruzzaman Akash, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
+      "venue": "Under review at *ICLR 2027*",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2611.10400"
+        },
+        {
+          "label": "video (earlier version)",
+          "url": "CORL26/corl_26_presentation_video.mp4"
+        }
+      ],
+      "summary": "MIND splits a vision-language-action policy's internal activations into sparse features and names the ones that match a manipulation concept on held-out runs. A monitor on those named features catches failures as they happen and explains them. With π_{0.5} in simulation it caught 99% of failures, against 95% for a monitor on the full activation, with half that monitor's false alarms.",
+      "media": {
+        "kind": "clip",
+        "clip": "assets/teasers/mind.mp4",
+        "poster": "assets/teasers/mind.jpg",
+        "full_video": "CORL26/corl_26_presentation_video.mp4",
+        "video_poster": "assets/posters/mind.jpg",
+        "video_title": "MIND: video of an earlier version",
+        "duration": "2:52",
+        "alt": "Robot arm next to a live readout of the policy's named features"
+      }
+    },
+    {
+      "id": "todo",
+      "title": "To Do or Not to Do: Ensuring the Safety of Visuomotor Policies Learned from Demonstrations",
+      "title_url": "https://arxiv.org/abs/2605.01201",
+      "authors": "**Riad Ahmed**, Moniruzzaman Akash, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
+      "venue": "*arXiv preprint*, 2026",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2605.01201"
+        }
+      ],
+      "summary": "We define an execution guarantee: from inside a specific region of the state space, a camera-based policy reaches its best success rate. A QP safety filter keeps the robot in that region; on a real Franka it lifted Diffusion Policy and Crossway Diffusion Policy from 50–70% success to 82–87%.",
+      "media": {
+        "kind": "image",
+        "image": "assets/teasers/todo.jpg",
+        "alt": "Franka arm reaching over a table with snack bars and a box"
+      }
+    },
+    {
+      "id": "mok",
+      "title": "MoK: A Mixture of Koopman Operators for Learning Visuomotor Policies",
+      "title_url": "",
+      "authors": "Sujosh Nag, Kaito Namatame, **Riad Ahmed**, Moniruzzaman Akash, Meisam Khorshidi, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
+      "venue": "Under review at *ICRA 2027*",
+      "links": [],
+      "summary": "MoK mixes a bank of Koopman operators with a learned gate at every step. Along recorded rollouts, its operators shrink errors over an episode; the operators in earlier Koopman policies grow them 8× to 20,000×. Cup stacking and kitchen prep on a Franka FR3 with an Inspire hand each succeeded in 70% of trials (DP3: 25% and 5%).",
+      "media": {
+        "kind": "image",
+        "image": "assets/teasers/mok.jpg",
+        "alt": "Franka arm with an Inspire hand at the start and the end of cup stacking"
+      }
+    }
+  ],
+  "current_work": "I'm now working on IF-Safe (*This is Why You are Failing and Here is a Way to Recover: A Safety Watchdog for Visuomotor Policy*, to be submitted to RSS 2027). It finds task-specific safety constraints inside a trained policy and turns them, with other easy-to-build criteria, into a control barrier function. When an action would break a constraint, IF-Safe corrects it along the gradient of a learned value function.",
+  "experience": [
+    {
+      "role": "Graduate Research Assistant",
+      "place": "Cognitive Assistive Robotics Lab, University of New Hampshire",
+      "when": "Jan 2025 – present",
+      "details": ""
+    },
+    {
+      "role": "Lecturer",
+      "place": "Computer Science and Engineering, BRAC University (on study leave)",
+      "when": "Jan 2023 – Dec 2024",
+      "details": "Taught Introduction to Robotics and Programming Language II, supervised two undergraduate theses and co-founded a student robotics research group."
+    },
+    {
+      "role": "Machine Learning Engineer",
+      "place": "Headless Technologies, Dhaka",
+      "when": "Dec 2021 – Jan 2023",
+      "details": "Built a system for a client in Japan that tracked people across several cameras and recognized their actions from pose."
+    },
+    {
+      "role": "Mentor",
+      "place": "Bangladesh national team, International Robot Olympiad",
+      "when": "2019 – 2022",
+      "details": ""
+    }
+  ],
+  "education": [
+    {
+      "bold": "Ph.D. in Computer Science",
+      "rest": "University of New Hampshire",
+      "when": "2025 – present"
+    },
+    {
+      "bold": "B.Sc. in Robotics and Mechatronics Engineering",
+      "rest": "University of Dhaka",
+      "when": "2017 – 2021"
+    },
+    {
+      "bold": "",
+      "rest": "Government Honors Scholarship, for academic results in the B.Sc.",
+      "when": "2023"
+    },
+    {
+      "bold": "",
+      "rest": "IFIC Bank Trust Fund Research Grant, for undergraduate research",
+      "when": "2022"
+    },
+    {
+      "bold": "",
+      "rest": "Finalist, Robi Datathon 2.0 (top 10 of 325 teams)",
+      "when": "2022"
+    }
+  ],
+  "updated": "November 2026"
+}

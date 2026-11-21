@@ -147,6 +147,10 @@ section {
   padding: 22px 0;
 }
 
+.pub.no-media {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .pub + .pub,
 .current {
   border-top: 1px solid var(--rule);
