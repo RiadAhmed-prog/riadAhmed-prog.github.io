@@ -1,537 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Riad Ahmed — Robot Learning</title>
-  <meta name="description" content="Riad Ahmed, Ph.D. student in Computer Science at the University of New Hampshire. Robot learning for manipulation: runtime failure detection and safety for imitation-learned and vision-language-action policies, and policies for long-horizon tasks." />
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0d131a" media="(prefers-color-scheme: dark)" />
-
-  <!-- Link previews (Slack, LinkedIn, email) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Riad Ahmed — Robot Learning" />
-  <meta property="og:description" content="Ph.D. student at UNH working on runtime failure detection and safety for robot policies, and policies for long-horizon manipulation." />
-  <meta property="og:url" content="https://riadahmed-prog.github.io/" />
-  <meta property="og:image" content="https://riadahmed-prog.github.io/assets/profile-480.jpg" />
-  <meta name="twitter:card" content="summary" />
-
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-
-  <!-- Apply a saved theme before first paint to avoid a flash -->
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
-    })();
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Riad Ahmed</title>
+  <meta name="description" content="Riad Ahmed is a Ph.D. student at the University of New Hampshire working on robot learning: detecting and correcting failures of learned manipulation policies, and policies for long, multi-stage tasks.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Riad Ahmed">
+  <meta property="og:description" content="Ph.D. student at UNH working on robot learning: detecting and correcting failures of learned manipulation policies, and policies for long, multi-stage tasks.">
+  <meta property="og:url" content="https://riadahmed-prog.github.io/">
+  <meta property="og:image" content="https://riadahmed-prog.github.io/assets/profile-480.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="assets/icon-48.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+<main class="page">
 
-<a class="skip-link" href="#main">Skip to content</a>
-
-<!-- Icon sprite -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></g></symbol>
-  <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></g></symbol>
-  <symbol id="i-scholar" viewBox="0 0 24 24"><path fill="currentColor" d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></symbol>
-  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.382 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.838 1.234 1.91 1.234 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .322.216.694.825.576C20.565 21.795 24 17.298 24 12 24 5.37 18.627 0 12 0z"/></symbol>
-  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
-  <symbol id="i-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></g></symbol>
-  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></g></symbol>
-  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></g></symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></g></symbol>
-  <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></g></symbol>
-  <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></g></symbol>
-</svg>
-
-<!-- ==================== HEADER ==================== -->
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="#top">Riad Ahmed</a>
-    <nav class="site-nav" id="site-nav" aria-label="Main">
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#experience">Experience</a>
-      <a href="#background">Background</a>
-      <a href="#contact">Contact</a>
-      <a class="nav-cv" href="Riad_Ahmed_CV.pdf" target="_blank" rel="noopener">CV</a>
-    </nav>
-    <div class="header-actions">
-      <button class="icon-btn theme-toggle" type="button" aria-label="Switch color theme">
-        <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
-        <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
-      </button>
-      <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main id="main">
-
-<!-- ==================== HERO ==================== -->
-<section class="hero" id="top">
-  <div class="container hero-grid">
-    <div class="hero-photo">
-      <img src="assets/profile-480.jpg" alt="Riad Ahmed next to a Franka robot arm in the lab" width="480" height="480" />
-    </div>
-    <div class="hero-text">
-      <p class="eyebrow">Ph.D. student &middot; University of New Hampshire</p>
+  <header class="intro">
+    <div class="intro-text">
       <h1>Riad Ahmed</h1>
-      <p class="lead">
-        I work on robot learning for manipulation. Policies learned from demonstrations can do well in the lab
-        and then fail after a small change in the scene. My research is about making them dependable.
+      <p>
+        I'm a Ph.D. student in Computer Science at the University of New Hampshire, advised by
+        <a href="https://www.cs.unh.edu/~mbegum/">Momotaz Begum</a> in the Cognitive Assistive Robotics Lab.
+        I work on robot learning for manipulation.
       </p>
       <p>
-        I build runtime failure detectors and safety filters for diffusion, flow-matching and
-        vision-language-action policies, and policies that hold up on long, multi-stage tasks. I am advised by
-        <a href="https://www.cs.unh.edu/~mbegum/" target="_blank" rel="noopener">Dr. Momotaz Begum</a> in the
-        Cognitive Assistive Robotics Lab (CARL).
+        A policy learned from demonstrations can do well in the lab and then fail when the scene changes a little.
+        Most of my work is on detecting those failures and correcting the robot's actions. I also train policies for
+        long, multi-stage tasks. My experiments run on Franka arms, an Inspire dexterous hand and a Boston Dynamics Spot.
       </p>
-      <p class="status-pill"><span class="dot" aria-hidden="true"></span>Looking for a research internship for Summer 2027</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:Riad.Ahmed@unh.edu"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email</a>
-        <a class="btn" href="Riad_Ahmed_CV.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>CV</a>
-        <a class="btn" href="https://scholar.google.com/citations?user=iwkN68QAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Scholar</a>
-        <a class="btn" href="https://github.com/riadAhmed-prog" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/riad-ahmed-1a0b3918b" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
-      </div>
+      <p class="looking">
+        <strong>I'm looking for a research internship for summer 2027.</strong>
+        I'm on an F-1 visa and eligible for CPT and OPT.
+      </p>
+      <p class="links">
+        <a class="email" href="mailto:Riad.Ahmed@unh.edu">Riad.Ahmed@unh.edu</a> <span class="after-email">/</span>
+        <a href="Riad_Ahmed_CV.pdf">CV</a> <span>/</span>
+        <a href="https://scholar.google.com/citations?user=iwkN68QAAAAJ&amp;hl=en&amp;oi=ao">Google Scholar</a> <span>/</span>
+        <a href="https://github.com/riadAhmed-prog">GitHub</a> <span>/</span>
+        <a href="https://www.linkedin.com/in/riad-ahmed-1a0b3918b">LinkedIn</a>
+      </p>
     </div>
-  </div>
-  <div class="container">
-    <ul class="highlights">
-      <li><span class="hl-value">RSS 2026 &middot; IROS 2026</span><span class="hl-label">First-author papers</span></li>
-      <li><span class="hl-value">ICLR 2027 &middot; ICRA 2027</span><span class="hl-label">Papers under review</span></li>
-      <li><span class="hl-value">Franka &middot; Inspire hand &middot; Spot</span><span class="hl-label">Real-robot experiments</span></li>
+    <img class="portrait" src="assets/profile-480.jpg" width="480" height="480"
+         alt="Riad Ahmed standing next to a Franka robot arm in the lab">
+  </header>
+
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <li><span class="date">Nov 2026</span><span><a href="#p-mind">MIND</a>, our paper on detecting and explaining policy failures, is on arXiv.</span></li>
+      <li><span class="date">Jun 2026</span><span><a href="#p-trajfm">Trajectory-consistent flow matching</a> was accepted to IROS 2026.</span></li>
+      <li><span class="date">May 2026</span><span>Posted <a href="#p-todo">To Do or Not to Do</a> on arXiv.</span></li>
+      <li><span class="date">Apr 2026</span><span><a href="#p-tailsafe">TAIL-Safe</a> was accepted to RSS 2026 in Sydney.</span></li>
+      <li><span class="date">Jan 2025</span><span>Started my Ph.D. at UNH.</span></li>
     </ul>
-  </div>
-</section>
+  </section>
 
-<!-- ==================== RESEARCH ==================== -->
-<section class="section section--soft" id="research">
-  <div class="container">
-    <div class="section-head">
-      <h2>Research</h2>
-      <p class="section-sub">Two questions run through my work. Every method is tested on real robots.</p>
-    </div>
-    <div class="themes">
-      <article class="theme-card">
-        <span class="theme-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
-        <h3>When is a policy about to fail, and how can it recover?</h3>
-        <p>Runtime monitors, safety filters and interpretability tools for imitation-learned and
-           vision-language-action policies.</p>
-        <ul class="theme-links">
-          <li><a href="#p-tailsafe">TAIL-Safe</a><span>RSS 2026</span></li>
-          <li><a href="#p-mind">MIND</a><span>ICLR 2027, under review</span></li>
-          <li><a href="#p-ifsafe">IF-Safe</a><span>RSS 2027, in preparation</span></li>
-          <li><a href="#p-todo">To Do or Not to Do</a><span>arXiv 2026</span></li>
-        </ul>
-      </article>
-      <article class="theme-card">
-        <span class="theme-icon"><svg class="icon" aria-hidden="true"><use href="#i-route"/></svg></span>
-        <h3>How do we keep errors from piling up on long tasks?</h3>
-        <p>Policies that stay accurate over long, multi-stage manipulation, on robot arms, a dexterous hand
-           and a legged robot.</p>
-        <ul class="theme-links">
-          <li><a href="#p-trajfm">Trajectory-Consistent Flow Matching</a><span>IROS 2026</span></li>
-          <li><a href="#p-mok">MoK</a><span>ICRA 2027, under review</span></li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
+  <section id="publications">
+    <h2>Selected publications</h2>
+    <p class="section-note">Papers from my Ph.D.; older work is on <a href="https://scholar.google.com/citations?user=iwkN68QAAAAJ&amp;hl=en&amp;oi=ao">Google Scholar</a>.</p>
 
-<!-- ==================== PUBLICATIONS ==================== -->
-<section class="section" id="publications">
-  <div class="container">
-    <div class="section-head">
-      <h2>Publications</h2>
-      <p class="section-sub">Full list on <a href="https://scholar.google.com/citations?user=iwkN68QAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">Google Scholar</a>.</p>
-    </div>
-
-    <h3 class="pub-group">Accepted</h3>
-
-    <!-- TAIL-Safe -->
-    <article class="paper" id="p-tailsafe">
-      <a class="paper-media" href="RSS26/TAIL_Safe_demo_video.mp4" data-video="RSS26/TAIL_Safe_demo_video.mp4"
-         data-title="TAIL-Safe: demo video (RSS 2026)" data-poster="assets/posters/tail-safe.jpg"
-         aria-label="Play the TAIL-Safe demo video, 4 minutes 56 seconds">
-        <img src="assets/posters/tail-safe.jpg" alt="" width="960" height="540" loading="lazy" />
-        <span class="play-btn" aria-hidden="true"><svg class="icon"><use href="#i-play"/></svg></span>
-        <span class="media-label" aria-hidden="true">Demo video</span>
-        <span class="media-duration" aria-hidden="true">4:56</span>
+    <div class="pub" id="p-tailsafe">
+      <a class="pub-media" href="RSS26/TAIL_Safe_demo_video.mp4" data-video="RSS26/TAIL_Safe_demo_video.mp4"
+         data-title="TAIL-Safe (RSS 2026)" data-poster="assets/posters/tail-safe.jpg" title="Watch the full video (4:57)">
+        <video class="teaser" muted loop playsinline preload="none" poster="assets/teasers/tail-safe.jpg"
+               src="assets/teasers/tail-safe.mp4" aria-label="Franka arm moving around a table while TAIL-Safe collects images"></video>
       </a>
-      <div class="paper-body">
-        <div class="paper-meta"><span class="venue">RSS 2026</span><span class="status status--accepted">Accepted</span></div>
-        <h4 class="paper-title">TAIL-Safe: Task-Agnostic Safety Monitoring for Imitation Learning Policies</h4>
-        <p class="paper-authors"><strong>R. Ahmed</strong>, M. Begum</p>
-        <p class="paper-tldr">A runtime watchdog that predicts when an imitation-learned policy is about to fail and
-           steers it back to safety.</p>
-        <p class="paper-result">On a real Franka, a flow-matching policy that succeeded in 20&ndash;25% of perturbed
-           trials reached <strong>100%</strong> with TAIL-Safe (two tasks, 50 trials each).</p>
-        <div class="paper-actions">
-          <a class="chip-link chip-link--video" href="RSS26/TAIL_Safe_demo_video.mp4" data-video="RSS26/TAIL_Safe_demo_video.mp4"
-             data-title="TAIL-Safe: demo video (RSS 2026)" data-poster="assets/posters/tail-safe.jpg"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>Video</a>
-          <a class="chip-link" href="https://www.roboticsproceedings.org/rss22/p207.html" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>Paper</a>
-          <a class="chip-link" href="https://arxiv.org/abs/2605.01195" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>arXiv</a>
-        </div>
-        <details class="paper-details">
-          <summary>How it works <svg class="chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-          <p>Flow-matching and diffusion policies can fail after small run-time perturbations, even inside their
-             training distribution. TAIL-Safe learns a Lipschitz-continuous Q-value function that gives every
-             state-action pair a long-term safety score, built from three task-agnostic criteria: visibility,
-             recognizability and graspability. The zero-superlevel set of this function is an empirical control
-             invariant set. When the policy proposes an action outside it, a recovery step inspired by Nagumo's
-             theorem runs gradient ascent on the Q-function and steers the policy back to safety.</p>
-          <p>The Q-function is trained on failure data from a Gaussian Splatting digital twin of the lab, which takes
-             about 20 minutes to build (5 minutes of capture, 15 of reconstruction). That let us collect failures
-             without putting the real robot at risk.</p>
-          <div class="tags"><span>Runtime safety monitoring</span><span>Q-value function</span><span>Nagumo's theorem</span><span>Gaussian Splatting digital twin</span><span>Franka Panda</span></div>
-        </details>
+      <div class="pub-text">
+        <h3><a href="https://www.roboticsproceedings.org/rss22/p207.html">TAIL-Safe: Task-Agnostic Safety Monitoring for Imitation Learning Policies</a></h3>
+        <p class="authors"><strong>Riad Ahmed</strong>, <a href="https://www.cs.unh.edu/~mbegum/">Momotaz Begum</a></p>
+        <p class="venue"><em>Robotics: Science and Systems (RSS)</em>, 2026</p>
+        <p class="pub-links">
+          <a href="https://www.roboticsproceedings.org/rss22/p207.html">paper</a> /
+          <a href="https://arxiv.org/abs/2605.01195">arXiv</a> /
+          <a href="RSS26/TAIL_Safe_demo_video.mp4" data-video="RSS26/TAIL_Safe_demo_video.mp4" data-title="TAIL-Safe (RSS 2026)" data-poster="assets/posters/tail-safe.jpg">video</a>
+        </p>
+        <p class="summary">
+          TAIL-Safe gives each action the policy proposes a long-term safety score and corrects the ones that score low.
+          We trained it on about 500 rollouts per task in a Gaussian Splatting digital twin of our lab. Under
+          perturbations, it took a flow-matching policy on the real robot from 20–25% success to 100% (50 trials on
+          each of two tasks).
+        </p>
       </div>
-    </article>
+    </div>
 
-    <!-- Trajectory-Consistent Flow Matching -->
-    <article class="paper" id="p-trajfm">
-      <a class="paper-media" href="IROS26/IROS.mp4" data-video="IROS26/IROS.mp4"
-         data-title="Trajectory-Consistent Flow Matching: demo video (IROS 2026)" data-poster="assets/posters/traj-fm.jpg"
-         aria-label="Play the Trajectory-Consistent Flow Matching demo video, 3 minutes 46 seconds">
-        <img src="assets/posters/traj-fm.jpg" alt="" width="960" height="540" loading="lazy" />
-        <span class="play-btn" aria-hidden="true"><svg class="icon"><use href="#i-play"/></svg></span>
-        <span class="media-label" aria-hidden="true">Demo video</span>
-        <span class="media-duration" aria-hidden="true">3:46</span>
+    <div class="pub" id="p-trajfm">
+      <a class="pub-media" href="IROS26/IROS.mp4" data-video="IROS26/IROS.mp4"
+         data-title="Trajectory-Consistent Flow Matching (IROS 2026)" data-poster="assets/posters/traj-fm.jpg" title="Watch the full video (3:47)">
+        <video class="teaser" muted loop playsinline preload="none" poster="assets/teasers/traj-fm.jpg"
+               src="assets/teasers/traj-fm.mp4" aria-label="Franka arm stacking cups"></video>
       </a>
-      <div class="paper-body">
-        <div class="paper-meta"><span class="venue">IROS 2026</span><span class="status status--accepted">Accepted</span></div>
-        <h4 class="paper-title">Trajectory-Consistent Flow Matching for Robust Visuomotor Policy Learning</h4>
-        <p class="paper-authors"><strong>R. Ahmed</strong>, S. Nag, M. Akash, M. Hussein, M. Begum</p>
-        <p class="paper-tldr">Flow-matching policies are trained on single points but run by integrating an ODE, so
-           small errors compound. Supervising whole integration trajectories closes that gap.</p>
-        <p class="paper-result">In 20 real trials per method on a Franka FR3 and a Boston Dynamics Spot:
-           <strong>70%</strong> and <strong>60%</strong> on two long-horizon tasks where neither baseline (DP3,
-           Consistency FM) completed a single trial, and <strong>100%</strong> on screwdriver placement (DP3: 70%).</p>
-        <div class="paper-actions">
-          <a class="chip-link chip-link--video" href="IROS26/IROS.mp4" data-video="IROS26/IROS.mp4"
-             data-title="Trajectory-Consistent Flow Matching: demo video (IROS 2026)" data-poster="assets/posters/traj-fm.jpg"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>Video</a>
-          <a class="chip-link" href="https://arxiv.org/abs/2605.08511" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>arXiv</a>
-        </div>
-        <details class="paper-details">
-          <summary>How it works <svg class="chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-          <p>A flow-matching policy is trained with a pointwise velocity objective, but at run time it has to
-             numerically integrate that velocity field. We combine four fixes: auxiliary rectified-flow velocity
-             regression, multi-step trajectory-consistency training that supervises the integrated displacement over
-             trajectory segments, velocity-field regularization for temporal smoothness, and fourth-order
-             Runge&ndash;Kutta (RK4) inference. None of them is enough alone: RK4 fails without a smooth velocity
-             field, and smoothness without trajectory-level supervision still drifts. A dual-view 3D point-cloud
-             encoder provides the observations. The two long-horizon tasks are bell-pepper placing and cup stacking.</p>
-          <div class="tags"><span>Flow matching</span><span>Trajectory consistency</span><span>RK4 integration</span><span>Point clouds</span><span>Franka FR3</span><span>Boston Dynamics Spot</span></div>
-        </details>
+      <div class="pub-text">
+        <h3><a href="https://arxiv.org/abs/2605.08511">Trajectory-Consistent Flow Matching for Robust Visuomotor Policy Learning</a></h3>
+        <p class="authors"><strong>Riad Ahmed</strong>, Sujosh Nag, Moniruzzaman Akash, Mostafa Hussein, <a href="https://www.cs.unh.edu/~mbegum/">Momotaz Begum</a></p>
+        <p class="venue"><em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>, 2026</p>
+        <p class="pub-links">
+          <a href="https://arxiv.org/abs/2605.08511">arXiv</a> /
+          <a href="IROS26/IROS.mp4" data-video="IROS26/IROS.mp4" data-title="Trajectory-Consistent Flow Matching (IROS 2026)" data-poster="assets/posters/traj-fm.jpg">video</a>
+        </p>
+        <p class="summary">
+          Flow-matching policies are trained on single points of the flow but run by integrating it, so errors build up
+          over a long task. We add supervision on whole segments of the integrated trajectory. Our policy finished two
+          long-horizon tasks on a Franka FR3 in 70% and 60% of 20 trials (DP3 and Consistency FM: none), and a
+          screwdriver task on a Spot in all 20.
+        </p>
       </div>
-    </article>
+    </div>
 
-    <h3 class="pub-group">Under review</h3>
-
-    <!-- MIND -->
-    <article class="paper" id="p-mind">
-      <a class="paper-media" href="CORL26/corl_26_presentation_video.mp4" data-video="CORL26/corl_26_presentation_video.mp4"
-         data-title="MIND: presentation video (earlier version)" data-poster="assets/posters/mind.jpg"
-         aria-label="Play the MIND presentation video, 2 minutes 52 seconds">
-        <img src="assets/posters/mind.jpg" alt="" width="960" height="540" loading="lazy" />
-        <span class="play-btn" aria-hidden="true"><svg class="icon"><use href="#i-play"/></svg></span>
-        <span class="media-label" aria-hidden="true">Presentation</span>
-        <span class="media-duration" aria-hidden="true">2:52</span>
+    <div class="pub" id="p-mind">
+      <a class="pub-media" href="CORL26/corl_26_presentation_video.mp4" data-video="CORL26/corl_26_presentation_video.mp4"
+         data-title="MIND: video of an earlier version" data-poster="assets/posters/mind.jpg" title="Watch the video (2:52)">
+        <video class="teaser" muted loop playsinline preload="none" poster="assets/teasers/mind.jpg"
+               src="assets/teasers/mind.mp4" aria-label="Robot arm next to a live readout of the policy's named features"></video>
       </a>
-      <div class="paper-body">
-        <div class="paper-meta"><span class="venue">ICLR 2027</span><span class="status status--review">Under review</span></div>
-        <h4 class="paper-title">Detecting and Explaining Robot Policy Failures from Sparse Internal Features</h4>
-        <p class="paper-authors"><strong>R. Ahmed</strong>, S. Nag, M. Akash, M. Begum</p>
-        <p class="paper-tldr"><strong>MIND</strong> looks inside vision-language-action policies with a sparse
-           autoencoder, names the features it finds, and uses them to detect failures and explain them.</p>
-        <p class="paper-result">On &pi;<sub>0.5</sub>, the monitor catches <strong>99% of failures</strong>, against 95%
-           for a monitor on the full activation, with half the false alarms. Clamping a named feature steers the arm
-           the way its name says for <strong>12 of 14</strong> motion concepts on OpenVLA.</p>
-        <div class="paper-actions">
-          <a class="chip-link chip-link--video" href="CORL26/corl_26_presentation_video.mp4" data-video="CORL26/corl_26_presentation_video.mp4"
-             data-title="MIND: presentation video (earlier version)" data-poster="assets/posters/mind.jpg"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>Video</a>
-          <a class="chip-link" href="https://arxiv.org/abs/2611.10400" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>arXiv</a>
-        </div>
-        <details class="paper-details">
-          <summary>How it works <svg class="chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-          <p>Watching a robot fail tells you little about what went wrong inside its policy. MIND (Mechanistic
-             Interpretability for Neural Diagnosis) splits a policy's internal activations into features with a
-             sparse autoencoder. It names each feature by linking its activity to the robot's position, motion and
-             surroundings, and keeps a name only if it still holds on episodes the method has not seen. During
-             execution, MIND raises an alarm when these features drift from the patterns of successful runs, and uses
-             the named features behind the change to describe what went wrong.</p>
-          <p>Tested on three VLAs (OpenVLA, LingBot-VLA 2.0 and &pi;<sub>0.5</sub>) in LIBERO and RoboTwin, and on a
-             real Franka with an Inspire hand running a fine-tuned &pi;<sub>0.5</sub>. The video presents an earlier
-             version of this work.</p>
-          <div class="tags"><span>Mechanistic interpretability</span><span>Sparse autoencoders</span><span>Vision-language-action models</span><span>Failure detection</span><span>OpenVLA</span><span>&pi;<sub>0.5</sub></span></div>
-        </details>
-      </div>
-    </article>
-
-    <!-- MoK -->
-    <article class="paper no-media" id="p-mok">
-      <div class="paper-body">
-        <div class="paper-meta"><span class="venue">ICRA 2027</span><span class="status status--review">Under review</span></div>
-        <h4 class="paper-title">MoK: A Mixture of Koopman Operators for Learning Visuomotor Policies</h4>
-        <p class="paper-authors">S. Nag, K. Namatame, <strong>R. Ahmed</strong>, M. Akash, M. Khorshidi, M. Begum</p>
-        <p class="paper-tldr">A bank of Koopman operators mixed by a learned gate at every step. Each mixture is
-           contractive by construction, so prediction error shrinks over an episode (factor 0.65) instead of growing
-           8&times; to 20,000&times; as in earlier Koopman policies.</p>
-        <p class="paper-result">Best mean success across 7 Adroit and LIBERO tasks (<strong>85.5%</strong> vs. 79.9% for
-           Diffusion Policy). On a Franka FR3 with an Inspire hand, <strong>70%</strong> on each of two multi-stage tasks
-           (20 trials each), against 25% and 5% for DP3.</p>
-        <details class="paper-details">
-          <summary>How it works <svg class="chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-          <p>A Koopman policy replaces a nonlinear visuomotor map with a linear operator on a latent state. A single
-             operator struggles on long, multi-stage tasks, so MoK keeps several and lets a learned gate decide how to
-             mix them at each step. The real-robot policies were trained from 25 teleoperated demonstrations per task;
-             the two multi-stage tasks are cup stacking and kitchen preparation.</p>
-          <div class="tags"><span>Koopman operators</span><span>Long-horizon manipulation</span><span>Dexterous manipulation</span><span>Franka FR3</span><span>Inspire hand</span></div>
-        </details>
-      </div>
-    </article>
-
-    <h3 class="pub-group">In preparation and preprints</h3>
-
-    <!-- IF-Safe (RSS 2027) -->
-    <article class="paper no-media" id="p-ifsafe">
-      <div class="paper-body">
-        <div class="paper-meta"><span class="venue">RSS 2027</span><span class="status status--prep">To be submitted</span></div>
-        <h4 class="paper-title">This is Why You are Failing and Here is a Way to Recover: A Safety Watchdog for Visuomotor Policy</h4>
-        <p class="paper-tldr"><strong>IF-Safe</strong> (Interpreting Failure to be Safe) finds the task-specific safety
-           constraints hidden inside a trained policy and turns them into a control barrier function that corrects the
-           action before the task fails.</p>
-        <details class="paper-details">
-          <summary>How it works <svg class="chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-          <p>What counts as safe depends on the task: spilling water is a hazard indoors but may not be outdoors.
-             Existing latent safety filters either hand-design their safety constraints or rely on generic,
-             task-agnostic criteria such as those in TAIL-Safe. IF-Safe uses mechanistic interpretability to find the
-             features inside a trained policy that matter for completing the task, treats them as task-specific safety
-             constraints, and combines them with task-agnostic ones. From these constraints it computes a control
-             barrier function, learns a value function that estimates it at run time, and uses that value function to
-             correct the robot's action.</p>
-          <div class="tags"><span>Latent safety filter</span><span>Control barrier function</span><span>Mechanistic interpretability</span></div>
-        </details>
-      </div>
-    </article>
-
-    <!-- To Do or Not to Do -->
-    <article class="paper no-media" id="p-todo">
-      <div class="paper-body">
-        <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="status status--prep">Preprint</span></div>
-        <h4 class="paper-title">To Do or Not to Do: Ensuring the Safety of Visuomotor Policies Learned from Demonstrations</h4>
-        <p class="paper-authors"><strong>R. Ahmed</strong>, M. Akash, M. Begum</p>
-        <p class="paper-tldr">An <strong>execution guarantee</strong> for camera-based policies: a region of the state
-           space where the policy keeps its best task success, and a QP safety filter that keeps the robot inside it.</p>
-        <p class="paper-result">On a real Franka, success of Diffusion Policy and Crossway Diffusion Policy rose from
-           50&ndash;70% to <strong>82&ndash;87%</strong>, in clean and cluttered scenes.</p>
-        <div class="paper-actions">
-          <a class="chip-link" href="https://arxiv.org/abs/2605.01201" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>arXiv</a>
-        </div>
-        <details class="paper-details">
-          <summary>How it works <svg class="chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-          <p>Task success alone is not enough to deploy an imitation-learned policy where safety matters. The safe
-             region is defined by two perceptual constraints, field of view and recognizability, evaluated with novel
-             view synthesis. A QP safety filter built on Nagumo's sub-tangentiality condition keeps the robot inside it.</p>
-          <div class="tags"><span>Execution guarantee</span><span>Control-invariant set</span><span>QP safety filter</span><span>Novel view synthesis</span></div>
-        </details>
-      </div>
-    </article>
-
-    <details class="earlier">
-      <summary>Earlier work before the Ph.D. (5 papers) <svg class="chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-      <ul>
-        <li><span class="earlier-title">U-ActionNet: Dual-Pathway Fourier Networks for Action Recognition in UAV Surveillance</span>
-            A. M. Chowdhury et al., <strong>R. Ahmed</strong>. <em>IEEE Access</em>, 2024.
-            <a href="https://ieeexplore.ieee.org/abstract/document/10794748" target="_blank" rel="noopener">IEEE Xplore</a></li>
-        <li><span class="earlier-title">FaceEngine: Tracking-Based Real-Time Face Recognition in Video Surveillance</span>
-            A. Imran, <strong>R. Ahmed</strong>, M. M. Hasan et al. <em>SN Computer Science</em>, 2024.
-            <a href="https://link.springer.com/article/10.1007/s42979-024-02922-1" target="_blank" rel="noopener">Springer</a></li>
-        <li><span class="earlier-title">STPT: Spatio-Temporal Polychromatic Trajectory Based Elderly Exercise Evaluation</span>
-            <strong>R. Ahmed</strong>, R. Abdullah, L. Jamal. <em>IEEE Access</em>, 2023.
-            <a href="https://ieeexplore.ieee.org/abstract/document/10098793" target="_blank" rel="noopener">IEEE Xplore</a></li>
-        <li><span class="earlier-title">A Novel IoT-Based Medicine Consumption System for Elders</span>
-            R. Abdullah, <strong>R. Ahmed</strong>, L. Jamal. <em>SN Computer Science</em>, 2022.
-            <a href="https://link.springer.com/article/10.1007/s42979-022-01367-8" target="_blank" rel="noopener">Springer</a></li>
-        <li><span class="earlier-title">Pathfinder: A Fog-Assisted Vision-Based System for Optimal Path Selection of Service Robots</span>
-            N. Irtisam, <strong>R. Ahmed</strong>, M. Akash et al. <em>ICIEV/icIVPR</em>, 2020.
-            <a href="https://ieeexplore.ieee.org/abstract/document/9306573" target="_blank" rel="noopener">IEEE Xplore</a></li>
-      </ul>
-    </details>
-
-  </div>
-</section>
-
-<!-- ==================== EXPERIENCE ==================== -->
-<section class="section section--soft" id="experience">
-  <div class="container">
-    <div class="section-head">
-      <h2>Experience</h2>
-    </div>
-    <ol class="timeline">
-      <li class="tl-item">
-        <div class="tl-date">Jan 2025 &ndash; Present<span class="tl-type">Research</span></div>
-        <div class="tl-body">
-          <h3>Graduate Research Assistant</h3>
-          <p class="tl-org">CARL Lab, University of New Hampshire &middot; Durham, NH &middot; Advisor: Dr. Momotaz Begum</p>
-          <p>Runtime failure detection and safety for learned robot policies, and policies for long-horizon
-             manipulation. Experiments on Franka Panda and FR3 arms, an Inspire dexterous hand and a Boston Dynamics Spot.</p>
-        </div>
-      </li>
-      <li class="tl-item">
-        <div class="tl-date">Jan 2023 &ndash; Present<span class="tl-type">Teaching</span></div>
-        <div class="tl-body">
-          <h3>Lecturer, Department of CSE</h3>
-          <p class="tl-org">BRAC University &middot; Dhaka, Bangladesh &middot; on study leave</p>
-          <p>Taught Introduction to Robotics (CSE 461) and Programming Language II (CSE 111). Supervised two senior
-             theses, on autonomous agriculture and on space-telescope image analysis.</p>
-        </div>
-      </li>
-      <li class="tl-item">
-        <div class="tl-date">May 2023 &ndash; Dec 2024<span class="tl-type">Research</span></div>
-        <div class="tl-body">
-          <h3>Co-Founder and Research Supervisor</h3>
-          <p class="tl-org">RIS Research Group, BRAC University</p>
-          <p>Co-founded a student robotics research group and supervised its projects, including a multi-robot
-             extension of our Pathfinder navigation system.</p>
-        </div>
-      </li>
-      <li class="tl-item">
-        <div class="tl-date">May 2022 &ndash; Dec 2024<span class="tl-type">Research</span></div>
-        <div class="tl-body">
-          <h3>Research Assistant</h3>
-          <p class="tl-org">University of Dhaka &middot; Advisors: Prof. Lafifa Jamal and Dr. Sejuti Rahman</p>
-          <p>Built Haate-khori, a teaching robot for a child&ndash;robot interaction study on Bengali handwriting, and
-             IHABOT, an autonomous hospital robot with SLAM navigation and onboard vital-sign sensing.</p>
-        </div>
-      </li>
-      <li class="tl-item">
-        <div class="tl-date">Dec 2021 &ndash; Jan 2023<span class="tl-type">Industry</span></div>
-        <div class="tl-body">
-          <h3>Machine Learning Engineer</h3>
-          <p class="tl-org">Headless Technologies Ltd. &middot; Dhaka, Bangladesh</p>
-          <p>Built and deployed a real-time video analytics product for a Japanese enterprise client, with
-             multi-camera, multi-person tracking and pose-based action recognition. Automated model selection and
-             hyperparameter tuning, which replaced manual retraining before each release.</p>
-        </div>
-      </li>
-      <li class="tl-item">
-        <div class="tl-date">2019 &ndash; 2022<span class="tl-type">Mentoring</span></div>
-        <div class="tl-body">
-          <h3>Mentor, Bangladesh National Team</h3>
-          <p class="tl-org">International Robot Olympiad</p>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ==================== BACKGROUND ==================== -->
-<section class="section" id="background">
-  <div class="container">
-    <div class="section-head">
-      <h2>Background</h2>
-    </div>
-    <div class="background-grid">
-      <div>
-        <h3 class="block-title">Education</h3>
-        <div class="edu-item">
-          <h3>University of New Hampshire</h3>
-          <p>Ph.D. in Computer Science &middot; GPA 4.00/4.00</p>
-          <p>Jan 2025 &ndash; Present &middot; Durham, NH, USA</p>
-        </div>
-        <div class="edu-item">
-          <h3>University of Dhaka</h3>
-          <p>B.Sc. in Robotics and Mechatronics Engineering &middot; GPA 3.71/4.00</p>
-          <p>Jan 2017 &ndash; Dec 2021 &middot; Dhaka, Bangladesh</p>
-        </div>
-
-        <h3 class="block-title">Honors and awards</h3>
-        <ul class="awards">
-          <li><span><strong>Government Honors Scholarship</strong>, for academic results in the B.Sc.</span><span class="year">2023</span></li>
-          <li><span><strong>IFIC Bank Trust Fund Research Grant</strong>, for undergraduate research</span><span class="year">2022</span></li>
-          <li><span><strong>Finalist, Robi Datathon 2.0</strong>, top 10 of 325 teams</span><span class="year">2022</span></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="block-title">Skills</h3>
-        <div class="skill-group">
-          <h4>Robot learning</h4>
-          <ul class="chips"><li>Imitation learning</li><li>Diffusion Policy</li><li>DP3</li><li>Flow matching</li><li>Koopman models</li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>Vision-language-action models</h4>
-          <ul class="chips"><li>OpenVLA</li><li>LingBot-VLA</li><li>&pi;<sub>0.5</sub></li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>Safety and interpretability</h4>
-          <ul class="chips"><li>Runtime monitoring</li><li>Failure detection</li><li>Control barrier functions</li><li>QP safety filters</li><li>Reach-avoid Q-value functions</li><li>Mechanistic interpretability</li><li>Sparse autoencoders</li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>Robots and simulation</h4>
-          <ul class="chips"><li>Franka Panda and FR3</li><li>Inspire dexterous hand</li><li>Boston Dynamics Spot</li><li>SpaceMouse teleoperation</li><li>MuJoCo</li><li>robosuite</li><li>LIBERO</li><li>RoboTwin</li><li>Adroit</li><li>MetaWorld</li></ul>
-        </div>
-        <div class="skill-group">
-          <h4>3D vision and programming</h4>
-          <ul class="chips"><li>Point clouds</li><li>3D Gaussian Splatting</li><li>Python</li><li>C++</li><li>PyTorch</li><li>CUDA</li><li>Docker</li><li>Git</li><li>Linux</li></ul>
-        </div>
+      <div class="pub-text">
+        <h3><a href="https://arxiv.org/abs/2611.10400">Detecting and Explaining Robot Policy Failures from Sparse Internal Features</a></h3>
+        <p class="authors"><strong>Riad Ahmed</strong>, Sujosh Nag, Moniruzzaman Akash, <a href="https://www.cs.unh.edu/~mbegum/">Momotaz Begum</a></p>
+        <p class="venue">Under review at <em>ICLR 2027</em></p>
+        <p class="pub-links">
+          <a href="https://arxiv.org/abs/2611.10400">arXiv</a> /
+          <a href="CORL26/corl_26_presentation_video.mp4" data-video="CORL26/corl_26_presentation_video.mp4" data-title="MIND: video of an earlier version" data-poster="assets/posters/mind.jpg">video (earlier version)</a>
+        </p>
+        <p class="summary">
+          MIND splits a vision-language-action policy's internal activations into sparse features and names the ones
+          that match a manipulation concept on held-out runs. A monitor on those named features catches failures as
+          they happen and explains them. With π<sub>0.5</sub> in simulation it caught 99% of failures, against 95% for a
+          monitor on the full activation, with half that monitor's false alarms.
+        </p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ==================== CONTACT ==================== -->
-<section class="section section--soft" id="contact">
-  <div class="container">
-    <div class="contact-card">
-      <h2>Get in touch</h2>
-      <p>I am looking for a research internship for Summer 2027 (F-1 student, eligible for CPT). If your team works on
-         robot learning, policy failures or safety, I would be glad to talk. Email is the best way to reach me.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:Riad.Ahmed@unh.edu"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Riad.Ahmed@unh.edu</a>
-        <a class="btn" href="Riad_Ahmed_CV.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>CV (PDF)</a>
-        <a class="btn" href="https://www.linkedin.com/in/riad-ahmed-1a0b3918b" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+    <div class="pub" id="p-todo">
+      <div class="pub-media">
+        <img src="assets/teasers/todo.jpg" width="640" height="360" loading="lazy"
+             alt="Franka arm reaching over a table with snack bars and a box">
+      </div>
+      <div class="pub-text">
+        <h3><a href="https://arxiv.org/abs/2605.01201">To Do or Not to Do: Ensuring the Safety of Visuomotor Policies Learned from Demonstrations</a></h3>
+        <p class="authors"><strong>Riad Ahmed</strong>, Moniruzzaman Akash, <a href="https://www.cs.unh.edu/~mbegum/">Momotaz Begum</a></p>
+        <p class="venue"><em>arXiv preprint</em>, 2026</p>
+        <p class="pub-links"><a href="https://arxiv.org/abs/2605.01201">arXiv</a></p>
+        <p class="summary">
+          We define an execution guarantee: from inside a specific region of the state space, a camera-based policy
+          reaches its best success rate. A QP safety filter keeps the robot in that region; on a real Franka it lifted
+          Diffusion Policy and Crossway Diffusion Policy from 50–70% success to 82–87%.
+        </p>
       </div>
     </div>
-  </div>
-</section>
 
+    <div class="pub" id="p-mok">
+      <div class="pub-media">
+        <img src="assets/teasers/mok.jpg" width="640" height="360" loading="lazy"
+             alt="Franka arm with an Inspire hand at the start and the end of cup stacking">
+      </div>
+      <div class="pub-text">
+        <h3>MoK: A Mixture of Koopman Operators for Learning Visuomotor Policies</h3>
+        <p class="authors">Sujosh Nag, Kaito Namatame, <strong>Riad Ahmed</strong>, Moniruzzaman Akash, Meisam Khorshidi, <a href="https://www.cs.unh.edu/~mbegum/">Momotaz Begum</a></p>
+        <p class="venue">Under review at <em>ICRA 2027</em></p>
+        <p class="summary">
+          MoK mixes a bank of Koopman operators with a learned gate at every step. Along recorded rollouts, its operators
+          shrink errors over an episode; the operators in earlier Koopman policies grow them 8× to 20,000×. Cup stacking and kitchen prep on a Franka FR3 with an Inspire hand each succeeded in 70% of trials
+          (DP3: 25% and 5%).
+        </p>
+      </div>
+    </div>
+
+    <p class="current">
+      I'm now working on IF-Safe (<em>This is Why You are Failing and Here is a Way to Recover: A Safety Watchdog for
+      Visuomotor Policy</em>, to be submitted to RSS 2027). It finds task-specific safety constraints inside a trained
+      policy and turns them, with other easy-to-build criteria, into a control barrier function. When an action would
+      break a constraint, IF-Safe corrects it along the gradient of a learned value function.
+    </p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="rows">
+      <li>
+        <div class="row-head"><span><strong>Graduate Research Assistant</strong>, Cognitive Assistive Robotics Lab, University of New Hampshire</span><span class="when">Jan 2025 – present</span></div>
+      </li>
+      <li>
+        <div class="row-head"><span><strong>Lecturer</strong>, Computer Science and Engineering, BRAC University (on study leave)</span><span class="when">Jan 2023 – Dec 2024</span></div>
+        <p>Taught Introduction to Robotics and Programming Language II, supervised two undergraduate theses and co-founded a student robotics research group.</p>
+      </li>
+      <li>
+        <div class="row-head"><span><strong>Machine Learning Engineer</strong>, Headless Technologies, Dhaka</span><span class="when">Dec 2021 – Jan 2023</span></div>
+        <p>Built a system for a client in Japan that tracked people across several cameras and recognized their actions from pose.</p>
+      </li>
+      <li>
+        <div class="row-head"><span><strong>Mentor</strong>, Bangladesh national team, International Robot Olympiad</span><span class="when">2019 – 2022</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education and honors</h2>
+    <ul class="rows">
+      <li><div class="row-head"><span><strong>Ph.D. in Computer Science</strong>, University of New Hampshire</span><span class="when">2025 – present</span></div></li>
+      <li><div class="row-head"><span><strong>B.Sc. in Robotics and Mechatronics Engineering</strong>, University of Dhaka</span><span class="when">2017 – 2021</span></div></li>
+      <li><div class="row-head"><span>Government Honors Scholarship, for academic results in the B.Sc.</span><span class="when">2023</span></div></li>
+      <li><div class="row-head"><span>IFIC Bank Trust Fund Research Grant, for undergraduate research</span><span class="when">2022</span></div></li>
+      <li><div class="row-head"><span>Finalist, Robi Datathon 2.0 (top 10 of 325 teams)</span><span class="when">2022</span></div></li>
+    </ul>
+  </section>
+
+  <footer class="footer">Last updated November 2026.</footer>
 </main>
 
-<footer class="site-footer">
-  <div class="container">&copy; 2026 Riad Ahmed &middot; University of New Hampshire &middot; Last updated November 2026</div>
-</footer>
-
-<!-- ==================== VIDEO DIALOG ==================== -->
-<dialog class="video-modal" id="video-modal" aria-labelledby="video-modal-title">
-  <header>
-    <h3 id="video-modal-title">Video</h3>
-    <button class="icon-btn" type="button" data-close aria-label="Close video">
-      <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
-    </button>
-  </header>
+<dialog class="player" id="player" aria-labelledby="player-title">
+  <div class="player-bar">
+    <span id="player-title"></span>
+    <button type="button" class="player-close" data-close aria-label="Close video">Close</button>
+  </div>
   <video controls playsinline preload="none"></video>
-  <footer>
-    <span class="hint">Press Esc or click outside the video to close.</span>
-    <a href="#" data-download target="_blank" rel="noopener">Open the video file</a>
-  </footer>
 </dialog>
 
 </body>
