@@ -95,7 +95,7 @@
       "id": "trajfm",
       "title": "Trajectory-Consistent Flow Matching for Robust Visuomotor Policy Learning",
       "title_url": "https://arxiv.org/abs/2605.08511",
-      "authors": "**Riad Ahmed**, Sujosh Nag, Moniruzzaman Akash, Mostafa Hussein, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
+      "authors": "**Riad Ahmed**, [Sujosh Nag](https://www.sujoshnag.com/), [Moniruzzaman Akash](https://mnakash.com/), Mostafa Hussein, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
       "venue": "*IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*, 2026",
       "links": [
         {
@@ -123,7 +123,7 @@
       "id": "mind",
       "title": "Detecting and Explaining Robot Policy Failures from Sparse Internal Features",
       "title_url": "https://arxiv.org/abs/2611.10400",
-      "authors": "**Riad Ahmed**, Sujosh Nag, Moniruzzaman Akash, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
+      "authors": "**Riad Ahmed**, [Sujosh Nag](https://www.sujoshnag.com/), [Moniruzzaman Akash](https://mnakash.com/), [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
       "venue": "Under review at *ICLR 2027*",
       "links": [
         {
@@ -151,7 +151,7 @@
       "id": "todo",
       "title": "To Do or Not to Do: Ensuring the Safety of Visuomotor Policies Learned from Demonstrations",
       "title_url": "https://arxiv.org/abs/2605.01201",
-      "authors": "**Riad Ahmed**, Moniruzzaman Akash, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
+      "authors": "**Riad Ahmed**, [Moniruzzaman Akash](https://mnakash.com/), [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
       "venue": "*arXiv preprint*, 2026",
       "links": [
         {
@@ -170,7 +170,7 @@
       "id": "mok",
       "title": "MoK: A Mixture of Koopman Operators for Learning Visuomotor Policies",
       "title_url": "",
-      "authors": "Sujosh Nag, Kaito Namatame, **Riad Ahmed**, Moniruzzaman Akash, Meisam Khorshidi, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
+      "authors": "[Sujosh Nag](https://www.sujoshnag.com/), Kaito Namatame, **Riad Ahmed**, [Moniruzzaman Akash](https://mnakash.com/), Meisam Khorshidi, [Momotaz Begum](https://www.cs.unh.edu/~mbegum/)",
       "venue": "Under review at *ICRA 2027*",
       "links": [],
       "summary": "MoK mixes a bank of Koopman operators with a learned gate at every step. Along recorded rollouts, its operators shrink errors over an episode; the operators in earlier Koopman policies grow them 8× to 20,000×. Cup stacking and kitchen prep on a Franka FR3 with an Inspire hand each succeeded in 70% of trials (DP3: 25% and 5%).",
